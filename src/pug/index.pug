@@ -1,0 +1,189 @@
+extends _template
+
+block main
+  section.big-offsets
+    .container
+      h2.h.h-big.ta-center Мы помогаем в ситуациях
+      .row
+        .col-6
+          .home-feature
+            .home-feature__ico: img(src="img/home-s1.svg", alt="")
+            .home-feature__text
+              .home-feature__header Плохая кредитная история
+              | Помогаем получить одобрение ипотеки даже при наличии плохой кредитной истории.  
+        .col-6
+          .home-feature
+            .home-feature__ico: img(src="img/home-s2.svg", alt="")
+            .home-feature__text
+              .home-feature__header Неподтвержденный доход
+              | Помогаем доказать Банку Вашу платежеспособность Без предоставления справок от работодателя.
+        .col-6
+          .home-feature
+            .home-feature__ico: img(src="img/home-s3.svg", alt="")
+            .home-feature__text
+              .home-feature__header Отказывают в Банках
+              | Даже при наличии отказов в банках точно сделаем одобрение. Гарантируем результат.
+        .col-6
+          .home-feature
+            .home-feature__ico: img(src="img/home-s4.svg", alt="")
+            .home-feature__text
+              .home-feature__header ипотека без первоначального взноса
+              | Помогаем получить одобрение ипотеки даже при наличии плохой кредитной истории.  
+        .col-6
+          .home-feature
+            .home-feature__ico: img(src="img/home-s5.svg", alt="")
+            .home-feature__text
+              .home-feature__header Военная ипотека
+              | Помогаем доказать Банку Вашу платежеспособность Без предоставления справок от работодателя.
+        .col-6
+          .home-feature
+            .home-feature__ico: img(src="img/home-s6.svg", alt="")
+            .home-feature__text
+              .home-feature__header Ипотека для нерезидентов
+              | Даже при наличии отказов в банках точно сделаем одобрение. Гарантируем результат.
+  section.big-offset.home-services
+    .container
+      h2.h.h-big.ta-center.home-services__header Наши услуги
+      .row
+        .col-4
+          a(href="#").service-item
+            .service-item__image(style="background-image: url(img/hs1.jpg)")
+              .service-item__value ОТ <span class="service-item__persent">8,7%</span>
+            .service-item__name Ипотека <br> на первичном рынке
+        .col-4
+          a(href="#").service-item
+            .service-item__image(style="background-image: url(img/hs2.jpg)")
+              .service-item__value ОТ <span class="service-item__persent">8,7%</span>
+            .service-item__name Ипотека <br> на вторичном рынке
+        .col-4
+          a(href="#").service-item
+            .service-item__image(style="background-image: url(img/hs3.jpg)")
+              .service-item__value ОТ <span class="service-item__persent">10,7%</span>
+            .service-item__name Семейная ипотека
+        .col-4
+          a(href="#").service-item
+            .service-item__image(style="background-image: url(img/hs4.jpg)")
+              .service-item__value ОТ <span class="service-item__persent">10,7%</span>
+            .service-item__name Ипотека <br> для юридических лиц
+        .col-8
+          a(href="#").service-item
+            .service-item__image(style="background-image: url(img/hs5.jpg)")
+              .service-item__value ОТ <span class="service-item__persent">10,7%</span>
+            .service-item__name Коммерческая ипотека
+        .col-8
+          a(href="#").service-item
+            .service-item__image(style="background-image: url(img/hs6.jpg)")
+              .service-item__value ОТ <span class="service-item__persent">10,7%</span>
+            .service-item__name Ипотека без первоначального взноса
+        .col-4
+          a(href="#").service-item
+            .service-item__image(style="background-image: url(img/hs7.jpg)")
+              .service-item__value ОТ <span class="service-item__persent">10,7%</span>
+            .service-item__name Ипотека <br> на комнату
+        .col-4
+          a(href="#").service-item
+            .service-item__image(style="background-image: url(img/hs8.jpg)")
+              .service-item__value ОТ <span class="service-item__persent">10,7%</span>
+            .service-item__name Ипотека под залог <br> имеющейся недвижимости
+        .col-4
+          a(href="#").service-item
+            .service-item__image(style="background-image: url(img/hs9.jpg)")
+              .service-item__value ОТ <span class="service-item__persent">10,7%</span>
+            .service-item__name Ипотека <br> на загородную недвижимость
+        .col-4
+          a(href="#").service-item
+            .service-item__image(style="background-image: url(img/hs10.jpg)")
+              .service-item__value ОТ <span class="service-item__persent">10,7%</span>
+            .service-item__name Субсидии
+  section.home-calc-wrap
+    .container
+      h2.h.h-big.ta-center Рассчитайте вашу ипотеку
+      form(action="#" data-parsley-validate).home-calc
+        .home-calc__left
+          .home-calc__row: .calc-radio
+            label.calc-radio__item
+              input(type="radio" name="pays")
+              .calc-radio__name Аннуитетные ПЛАТЕЖИ
+            label.calc-radio__item
+              input(type="radio" name="pays")
+              .calc-radio__name Дифферинцированные ПЛАТЕЖИ
+          .home-calc__row.js-slider-container(data-start="0" data-min="0" data-max="1000000")
+            .calc-row__header
+              span
+                | СТОИМОСТЬ, 
+                i.icm.icm-rouble
+              span.calc-row__val(role="val") 855 405
+            .calc-row__body.js-slider-wrapper
+              .js-slider
+          .home-calc__row.js-slider-container(data-start="0" data-min="0" data-max="1000000")
+            .calc-row__header
+              span
+                | Первоначальный взнос, &nbsp;&nbsp;
+                span.calc-radio.calc-radio_inline
+                  label.calc-radio__item
+                    input(type="radio" name="currency")
+                    .calc-radio__name: i.icm.icm-rouble
+                  label.calc-radio__item
+                    input(type="radio" name="currency")
+                    .calc-radio__name %
+              span.calc-row__val(role="val") 855 405
+            .calc-row__body.js-slider-wrapper
+              .js-slider
+          .home-calc__row.js-slider-container(data-start="0" data-min="0" data-max="1000000")
+            .calc-row__header
+              span
+                | Процентная ставка, %
+              span.calc-row__val(role="val") 855 405
+            .calc-row__body.js-slider-wrapper
+              .js-slider
+          .home-calc__row.js-slider-container(data-start="0" data-min="0" data-max="1000000")
+            .calc-row__header
+              span
+                | Срок, <small>лет</small>
+              span.calc-row__val(role="val") 855 405
+            .calc-row__body.js-slider-wrapper
+              .js-slider
+        .home-calc__right
+          .calc-sum.mb-7
+            | 60 526 
+            i.icm.icm-rouble 
+            span.calc-sum__by / Мес
+          .calc-stat
+            .calc-stat__row
+              span Общая сумма выплат
+              span 75 581 006 <i class="icm icm-rouble"></i>
+            .calc-stat__row
+              span Размер переплаты
+              span 45 581 006 <i class="icm icm-rouble"></i>
+          input.input(type="text" required placeholder="Имя" data-parsley-pattern="[а-яА-Я a-zA-Z]+").input-white
+          input.input(type="tel" required placeholder="Телефон").input-white.mt-5
+          button.btn.btn-primary.mt-6 Оставить заявку
+  section.home-achives
+    .container
+      h2.h.h-big.ta-center.home-achives__header Наши достижения
+      .achives-table.home-achives__table
+        .achives-table__item
+          .achives-table__value 3000
+          .achives-table__sep
+          .achives-table__desc и более клиентов получили ипотеку с нашей помощью
+        .achives-table__item
+          .achives-table__value 7
+          .achives-table__sep
+          .achives-table__desc лет на рынке кредитования
+        .achives-table__item
+          .achives-table__value 3000
+          .achives-table__sep
+          .achives-table__desc и более клиентов получили ипотеку с   нашей   помощью
+        .achives-table__item
+          .achives-table__value 7
+          .achives-table__sep
+          .achives-table__desc лет на рынке кредитования
+        .achives-table__item
+          .achives-table__value 3000
+          .achives-table__sep
+          .achives-table__desc и более клиентов получили ипотеку с   нашей помощью
+      p.mb-2 Человек, который ранее не сталкивался с оформлением кредита с созаемщиком, может перепутать такого помощника с поручителем. Важно понимать, что между ними имеется большая разница. Когда у основного заемщика возникают сложности с кредитом, финансовая организация сразу может привлечь к оплате долга созаемщика. Требовать же оплату кредита от поручителя банковские организации могут только при наличии соответствующего судебного решения. Доходы поручителя никогда не учитывается, а значит, его привлечение не помогает получить большую заемную сумму. Еще одно отличие заключается в том, что, даже помогая основному заемщику выплатить кредитный долг, поручитель не имеет никаких прав на недвижимость. Созаемщик имеет равные обязанности по выплате долга с основным заемщиком и равные права на ипотечный объект.
+      a(href="#").link Подробнее
+  section.home-reviews
+    .container
+      h2.h.h-big.ta-center Отзывы наших клиентов

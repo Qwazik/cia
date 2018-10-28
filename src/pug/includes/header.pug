@@ -1,0 +1,56 @@
+.page__header
+  header.main-header
+    .container
+      .row.main-header__row
+        .col-auto
+          a.main-logo(href="/")
+            img(src="img/logo.jpg", alt="Центральное ипотечное агентство")
+        .col-auto
+          p г. Санкт-Петербург, Невский проспект дом 80 офис 2-3
+          p График работы: <b>9.00 — 20.00</b> <span style="color: #b4b4b4;">Сб,Вс — выходной</span>
+        .col-auto
+          a(href="").main-header__scheme Схема проезда
+          a(href="mailto:info@ipotekavspb.ru").main-header__email info@ipotekavspb.ru
+        .col-auto
+          a(href="tel:+78003010075").main-header__tel  8-800-301-00-75
+          a(href="#").btn.btn-primary.main-header__feedback Получить  консультацию
+.page__menu.main-nav-container
+  .container: nav.main-nav
+    a(href="#").main-nav__item Главная
+    a(href="#").main-nav__item Ипотека
+    a(href="#").main-nav__item О компании
+    a(href="#").main-nav__item Акции
+    a(href="#").main-nav__item Услуги
+    a(href="#").main-nav__item Новости
+    a(href="#").main-nav__item Карьера
+    a(href="#").main-nav__item Контакты
+.page__home-slider
+  .home-slider.swiper-container
+    .home-slider__list.swiper-wrapper
+      .home-slider__item.swiper-slide(style="background-image: url(img/home-slider.jpg)")
+        .container
+          .home-slider__text
+            .home-slider__list
+              ul
+                li Помогаем законно получить ипотеку даже в сложных ситуациях 
+                li Имеем большой опыт работы в ипотечных Банках 
+      .home-slider__item.swiper-slide(style="background-image: url(img/home-slider.jpg)")
+        .container
+          .home-slider__text
+            .home-slider__list
+              ul
+                li Помогаем законно получить ипотеку даже в сложных ситуациях 
+                li Имеем большой опыт работы в ипотечных Банках 
+          .home-slider__btns
+            a(href="#").btn.btn-primary Наши контакты
+            a(href="#").btn.btn-primary Оставить заявку
+    .home-slider__nav
+      .home-slider__counter
+          span(role="current") 1
+          | /
+          span(role="all") 3
+      .home-slider__nav-btns
+        button.home-slider-prev(role="prev"): i.icm.icm-arrow-left
+        button.home-slider-next(role="next"): i.icm.icm-arrow-right
+
+        
