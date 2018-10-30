@@ -185,5 +185,96 @@ block main
       p.mb-2 Человек, который ранее не сталкивался с оформлением кредита с созаемщиком, может перепутать такого помощника с поручителем. Важно понимать, что между ними имеется большая разница. Когда у основного заемщика возникают сложности с кредитом, финансовая организация сразу может привлечь к оплате долга созаемщика. Требовать же оплату кредита от поручителя банковские организации могут только при наличии соответствующего судебного решения. Доходы поручителя никогда не учитывается, а значит, его привлечение не помогает получить большую заемную сумму. Еще одно отличие заключается в том, что, даже помогая основному заемщику выплатить кредитный долг, поручитель не имеет никаких прав на недвижимость. Созаемщик имеет равные обязанности по выплате долга с основным заемщиком и равные права на ипотечный объект.
       a(href="#").link Подробнее
   section.home-reviews
+    h2.h.h-big.ta-center.home-reviews__header Отзывы наших клиентов
+    .reviews-slider.swiper-container
+      .reviews-slider__list.swiper-wrapper
+        .swiper-slide: .reviews-slider__slide
+          .reviews-slider__author
+            .reviews-slider__author-photo(style="background-image: url('img/review-photo1.jpg')" alt="")
+            .reviews-slider__author-name Вова Дикусар
+            .reviews-slider__author-sep
+          .reviews-slider__text Огромное спасибо за профессиональную помощь в приобретении недвижимости в ипотеку. Это очень серьезный шаг в жизни каждой семьи. ЦИА помогли нам в нашей непростой ситуации. Нам одобрил ипотеку один из самых надежных банков - Сбербанк. Условия кредитования были подобраны именно так, как нам удобно и комфортно. 
+        .swiper-slide: .reviews-slider__slide
+          .reviews-slider__author
+            .reviews-slider__author-photo(style="background-image: url('img/review-photo2.jpg')" alt="")
+            .reviews-slider__author-name Вова Дикусар
+            .reviews-slider__author-sep
+          .reviews-slider__text Огромное спасибо за Это очень серьезный шаг в жизни каждой семьи. ЦИА помогли нам в нашей непростой ситуации. Нам одобрил ипотеку один из самых надежных банков - Сбербанк. Условия кредитования были подобраны именно так, как нам удобно и комфортно. 
+        .swiper-slide: .reviews-slider__slide
+          .reviews-slider__author
+            .reviews-slider__author-photo(style="background-image: url('img/review-photo3.jpg')" alt="")
+            .reviews-slider__author-name Вова Дикусар
+            .reviews-slider__author-sep
+          .reviews-slider__text Огромное спасибо за профессиональную помощь в приобретении недвижимости в ипотеку. Это очень серьезный шаг в жизни каждой семьи. ЦИА помогли нам в нашей непростой ситуации. Нам одобрил ипотеку один из самых надежных банков - Сбербанк. Условия кредитования были подобраны именно так, как нам удобно и комфортно. 
+      .reviews-slider-nav
+        button.reviews-slider-nav__btn(role="prev"): i.icm.icm-angle-left
+        .swiper-pagination
+        button.reviews-slider-nav__btn(role="next"): i.icm.icm-angle-right
+  section.consult-panel
     .container
-      h2.h.h-big.ta-center Отзывы наших клиентов
+      .consult-panel__row
+        .consult-panel__ico
+          img(src="img/consult.svg", alt="")
+        .consult-panel__text Обратитесь к специалисту за советом и помощью в ипотеке  
+        a(href="#").consult-panel__btn.btn.btn-primary Получить консультацию
+  section.partners-slider
+    .container
+      .row.partners-slider__row
+        .col-6
+          .partners-slider__pre-header.h.h-pre наши
+          .partners-slider__header.h.h-big Банки-партнеры
+          #partnersSliderPagination
+        .col-6
+          .swiper-container.partners-slider__slider
+            .partners-slider__wrapper.swiper-wrapper
+              .swiper-slide
+                .partners-slider__column
+                  .partners-slider__slide: img(src="img/partner1.jpg", alt="")
+                  .partners-slider__slide: img(src="img/partner2.jpg", alt="")
+              .swiper-slide
+                .partners-slider__column
+                  .partners-slider__slide: img(src="img/partner3.jpg", alt="")
+                  .partners-slider__slide: img(src="img/partner4.jpg", alt="")
+              .swiper-slide
+                .partners-slider__column
+                  .partners-slider__slide: img(src="img/partner5.jpg", alt="")
+                  .partners-slider__slide: img(src="img/partner6.jpg", alt="")
+  section.home-stages
+    .container
+      h2.h.h-big.ta-center Этапы работы
+      .row
+        .col
+          .stage-item
+            .stage-item__ico: img(src="img/step1.svg", alt="")
+            .stage-item__name обращение
+            .stage-item__text Заполните любую удобную форму заявки
+        .col
+          .stage-item
+            .stage-item__ico: img(src="img/step2.svg", alt="")
+            .stage-item__name Консультация
+            .stage-item__text В процессе общения наш менеджер формирует оптимальную финансовую модель для решения вашей задачи
+        .col
+          .stage-item
+            .stage-item__ico: img(src="img/step3.svg", alt="")
+            .stage-item__name Решение
+            .stage-item__text Мы предлагаем несколько вариантов решения и подаем заявки в выбранные вами банки
+        .col
+          .stage-item
+            .stage-item__ico: img(src="img/step4.svg", alt="")
+            .stage-item__name одобрение
+            .stage-item__text Получаем положительное решение банка по вашей заявке
+  section.map
+    #preFooterMap
+    .container.map__container
+      .map-left
+        .map-left__inner
+          ul
+            li
+              b ТЕЛЕФОН
+              a(href="tel: +78003010075") 8-800-301-00-75
+            li
+              b E-MAIL
+              a(href="#") info@ipotekavspb.ru
+            li
+              p г. Санкт-Петербург, <br> Невский проспект, дом 80 офис 2-3
+          a(href="#").btn.btn-primary Получить консультацию

@@ -1,5 +1,7 @@
 $(function(){
   $('input[type="tel"], input[name="tel"]').mask('+7(999)999-99-99');
+
+
   $('.js-slider-container').each(function(){
     var moneyFormat = wNumb({
       mark: '.',
@@ -30,6 +32,35 @@ $(function(){
 
   });
 
+  $('.partners-slider__slider').each(function () {
+    var swiper = new Swiper($(this), {
+      slidesPerView: 3,
+      spaceBetween: 30,
+      loop: true,
+      pagination: {
+        el: '#partnersSliderPagination'
+      }
+    });
+  });
+
+  $('.reviews-slider').each(function(){
+    var swiper = new Swiper($(this), {
+      slidesPerView: 3,
+      spaceBetween: 55,
+      loop: true,
+      centeredSlides: true,
+      pagination: {
+        el: '.swiper-pagination',
+      },
+      navigation: {
+        nextEl: '[role="next"]',
+        prevEl: '[role="prev"]'
+      }
+    });
+
+
+
+  });
   $('.home-slider').each(function(){
     var all = $(this).find('.swiper-slide').length;
     var allSelector = $(this).find('[role="all"]');
@@ -40,7 +71,7 @@ $(function(){
       navigation: {
         nextEl: '[role="next"]',
         prevEl: '[role="prev"]'
-      },
+      }
     });
 
     if (currentSelector.length){
@@ -50,3 +81,25 @@ $(function(){
     }
   });
 });
+
+ymaps.ready(init);
+function init() {
+  // Создание карты.    
+  var myMap = new ymaps.Map("preFooterMap", {
+    // Координаты центра карты.
+    // Порядок по умолчанию: «широта, долгота».
+    // Чтобы не определять координаты центра карты вручную,
+    // воспользуйтесь инструментом Определение координат.
+    center: [59.93291006415794, 30.344159499999942],
+    // Уровень масштабирования. Допустимые значения:
+    // от 0 (весь мир) до 19.
+    zoom: 17
+  });
+
+  myPlacemark = new ymaps.Placemark([59.93291006415794, 30.349159499999942], {}, {
+      iconLayout: 'default#image',
+  });
+
+  myMap.geoObjects
+    .add(myPlacemark)
+}

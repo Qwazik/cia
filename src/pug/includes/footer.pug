@@ -8,3 +8,35 @@
     a(href="#").main-nav__item Новости
     a(href="#").main-nav__item Карьера
     a(href="#").main-nav__item Контакты
+footer.main-footer
+  .container
+    .row
+      .col-auto
+        a(href="/").main-footer__logo:  img(src="img/footer-logo.png", alt="")
+        p © 2018 Центральное ипотечное агентство. 
+        p Все права защищены
+      .col.main-footer__right
+        .row.justify-content-end.align-items-center.main-footer__right_top
+          .col-auto.main-footer__schedule
+            .schedule-container
+              .schedule-header График работы: 
+              ul.schedule
+                li.schedule__item Пн
+                li.schedule__item Вт
+                li.schedule__item Ср
+                li.schedule__item Чт
+                li.schedule__item Пт
+                li.schedule__item.schedule__item_holyday Сб
+                li.schedule__item.schedule__item_holyday Вс
+          .col-auto
+            ul.social
+              li.social__item: a(href="#").social__link: i.icm.icm-facebook
+              li.social__item: a(href="#").social__link: i.icm.icm-vk
+              li.social__item: a(href="#").social__link: i.icm.icm-instagram
+              li.social__item: a(href="#").social__link: i.icm.icm-telegram
+        .row.justify-content-end.align-items-center
+          .col-auto
+            a(href="https://akiwa.ru").akiwa
+              img(src="img/akiwa.png", alt="") 
+              span — Создание и продвижение сайтов
+      
