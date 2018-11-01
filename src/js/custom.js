@@ -120,33 +120,9 @@ function init() {
 }
 
 
-if(location.origin == 'https://qwazik.github.io'){
-    $('body').append($('<script type="text/javascript" src="https://cdn.rawgit.com/Qwazik/scripts/master/navGit.js"></script>'));
-    $(window).load(function(){
-        navGit({
-            'Главная':'index.html',
-            'О нас(б)':'big-about.html',
-            'Статья(б)':'big-article.html',
-            'Блог':'blog.html',
-            'Блог внутренняя':'blog-inner.html',
-            'Книга':'book.html',
-            'Контакты':'contacts.html',
-            'Дизайн':'design-big.html',
-            'История':'history.html',
-            'Типовая':'inner.html',
-            'Работа':'jobs.html',
-            'Продвижение(б)':'prodvijenie-big.html',
-            'Продвижение':'prodvijenie.html',
-            'Услуги':'sevices.html',
-            'Сопровождение':'soprovojdenie-big.html',
-            'Вакансии':'vacancy.html'
-        });
-    });
-}
-
 $(function(){
 
-  if (true) {
+  if (location.origin == 'https://qwazik.github.io') {
     $('body').append($('<script type="text/javascript" src="https://cdn.rawgit.com/Qwazik/scripts/master/navGit.js"></script>'));
     $(window).on('load',function () {
       navGit({
