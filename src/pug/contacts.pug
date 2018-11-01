@@ -1,0 +1,68 @@
+extends _template
+
+block main
+  .inner-page
+    section
+      .container
+        .h.h-big.inner-page__header КОнтактная информация
+        form(action="#" data-parsley-validate).contacts-form
+          .contacts-form__left
+            .contacts-form__row
+              .h.mb-1 Адрес
+              .d-flex.justify-content-between
+                span г. Санкт-Петербург, Невский проспект,<br>  дом 80 офис 2-3
+                a(href="#").link Как проехать
+            .contacts-form__row
+              .h.mb-1 телефон
+              a(href="tel: +78003010075 ").off-link 8-800-301-00-75 
+            .contacts-form__row
+              .h.mb-1 E-mail
+              a(href="mailto:info@ipotekavspb.ru").off-link info@ipotekavspb.ru
+            
+            .contacts-form__row
+              .h.mb-1 График работы
+              ul.schedule.m-0
+                li.schedule__item Пн
+                li.schedule__item Вт
+                li.schedule__item Ср
+                li.schedule__item Чт
+                li.schedule__item Пт
+                li.schedule__item.schedule__item_holyday Сб
+                li.schedule__item.schedule__item_holyday Вс
+            .contacts-form__row
+              a(href="#rekviziti").fancybox.link Реквизиты компании
+              .d-none
+                #rekviziti
+                  .text-content
+                    p Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae, eum! Aspernatur corrupti iste atque earum natus, incidunt quis. Quisquam, ipsa?
+                    p Mollitia, explicabo! Facere possimus labore unde deserunt eum asperiores, rerum praesentium enim perferendis dolore natus ipsam dignissimos, ea ut culpa.
+                    p Dolorum quae temporibus nihil omnis sequi mollitia, quos sunt eligendi illo ipsum voluptatem non sed voluptatum labore saepe, recusandae nemo.
+                    p Nihil sit in corrupti. Odio, porro? Accusantium alias laboriosam blanditiis commodi laudantium magni mollitia nesciunt officia, quibusdam esse impedit cum.
+            .contacts-form__row
+              ul.social
+                li.social__item: a(href="#").social__link: i.icm.icm-facebook
+                li.social__item: a(href="#").social__link: i.icm.icm-vk
+                li.social__item: a(href="#").social__link: i.icm.icm-instagram
+                li.social__item: a(href="#").social__link: i.icm.icm-telegram
+          .contacts-form__right
+            .mb-7.ta-center
+              .h.h-md.mb-3 Напишите нам
+              p Оставьте свое сообщение и мы ответим в <br> ближайшее время
+            input.input(type="text" required placeholder="Имя" data-parsley-pattern="[а-яА-Я a-zA-Z]+").input-white
+            input.input(type="tel" required placeholder="Телефон").input-white.mt-5
+            input.input(type="email" required placeholder="E-mail").input-white.mt-5
+            input.input(type="text" required placeholder="Ваше сообщение").input-white.mt-5
+            button.btn.btn-primary.mt-6 оставить сообщение
+  section.text-content.p-8
+    .container
+      .h.h-md.mb-4 Схема проезда
+      .row
+        .col-6
+          .h.mb-2 На метро
+          p от метро Каширская, выход из последнего вагона из центра (к проспекту Андропова, музею "Коломенское", Онкологическому центру). Далее по Каширскому шоссе вдоль Онкологического центра пешком 10 минут или 2 остановки (до остановки "Библиотека им. Льва Толстого") на любом общественном транспорте, кроме автобусов 220 и 907.
+        .col-6
+          .h.mb-2 На автомобиле
+          p из центра - по Варшавскому шоссе, далее по Каширскому шоссе. После пересечения Коломенского проезда парковка рядом с рестораном "Усадьба принца". Перейти на противоположную сторону Каширского шоссе. Также возможна бесплатная парковка на территории Института Питания РАМН.
+  .map: #preFooterMap
+
+

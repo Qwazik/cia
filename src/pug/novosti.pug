@@ -1,0 +1,19 @@
+extends _template
+
+block main
+  .inner-page
+    section
+      .container
+        .h.h-big.inner-page__header Новости
+        .news-list
+          -for(var i=1; i<=3; i++)
+            .news-list__item.news-item
+              .news-item__image(style="background-image: url(img/news"+i+".jpg)")
+              .news-item__content
+                .news-item__date 22.11.2016
+                .news-item__name АБСОЛЮТ БАНК СНИЖАЕТ МИНИМАЛЬНЫЙ ПЕРВОНАЧАЛЬНЫЙ ВЗНОС 
+                .news-item__desc Теперь по всем программам на покупку жилья - «Стандарт» и «Первичный рынок» минимальный...
+                .news-item__footer
+                  a(href="#").news-item__more 
+
+

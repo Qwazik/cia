@@ -1,4 +1,5 @@
 $(function(){
+  $('.fancybox').fancybox();
   $('input[type="tel"], input[name="tel"]').mask('+7(999)999-99-99');
 
 
@@ -57,10 +58,22 @@ $(function(){
         prevEl: '[role="prev"]'
       }
     });
-
-
-
   });
+
+  $('.ipoteka-nav').each(function(){
+    var swiper = new Swiper($(this), {
+      slidesPerView: 'auto',
+      spaceBetween: 30,
+      freeMode: true,
+      navigation: {
+        nextEl: '.swiper-next',
+        prevEl: '.swiper-prev'
+      }
+    });
+  });
+
+
+
   $('.home-slider').each(function(){
     var all = $(this).find('.swiper-slide').length;
     var allSelector = $(this).find('[role="all"]');
@@ -83,7 +96,9 @@ $(function(){
 });
 
 ymaps.ready(init);
+
 function init() {
+  if (!$('#preFooterMap').length) return false;
   // Создание карты.    
   var myMap = new ymaps.Map("preFooterMap", {
     // Координаты центра карты.

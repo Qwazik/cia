@@ -1,0 +1,20 @@
+extends _template
+
+block main
+  .inner-page
+    section
+      .container
+        .h.h-big.inner-page__header Акции
+        .action-list
+          -for(var i=1; i<=4; i++)
+            .action-list__item.action-item(style="background: url(img/action"+i+".jpg)")
+              .action-item__top
+                .action-item__top-left
+                  .action-item__name бесплатно 
+                  .action-item__desc  Одобрение и сопровождение сделки по новостройке бесплатно 
+                .action-item__top-right
+                  .action-item__discount 
+                    | <span>-50</span> тыс
+              a(href="#").btn.btn-white.btn-sm.action-item__btn Подробнее
+
+

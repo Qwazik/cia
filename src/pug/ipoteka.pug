@@ -1,0 +1,140 @@
+extends _template
+
+block main
+  section
+    .container
+      .h.h-big.ta-center.my-6 Ипотека на первичном рынке
+      .ipoteka-nav.swiper-container
+        .swiper-prev.ipoteka-nav__control: i.icm.icm-arrow-left
+        .swiper-wrapper
+          .swiper-slide.ipoteka-nav__item.active Ипотека на первичном рынке
+          .swiper-slide.ipoteka-nav__item Ипотека на вторичном рынке
+          .swiper-slide.ipoteka-nav__item Семейная ипотека
+          .swiper-slide.ipoteka-nav__item Ипотека для юридических лиц
+          .swiper-slide.ipoteka-nav__item Коммерческая ипотека
+          .swiper-slide.ipoteka-nav__item Ипотека без первоначального взноса
+          .swiper-slide.ipoteka-nav__item Ипотека на комнату
+          .swiper-slide.ipoteka-nav__item Ипотека под залог имеющейся недвижимости
+          .swiper-slide.ipoteka-nav__item Ипотека на загородную недвижимость
+          .swiper-slide.ipoteka-nav__item Субсидии
+        .swiper-next.ipoteka-nav__control: i.icm.icm-arrow-right
+    .ipoteka-content
+      .container
+        -for(var i=1;i<=3;i++)
+          .ipoteka-item
+            .ipoteka-item__left
+              .ipoteka-item__name Новостройки
+              .ipoteka-item__desc «Ипотека с государственной поддержкой для семей с детьми» - В течение 3 лет с даты выдачи кредита в связи с рождением второго ребенка; - В течение 5 лет с даты выдачи кредита в связи с рождением третьего ребенка
+              .ipoteka-props
+                .ipoteka-props__item.ipoteka-props__item_big 9,2 <sup>%</sup>
+                .ipoteka-props__item
+                  span Сумма
+                  span от 300 000 ф
+                .ipoteka-props__item
+                  span Срок
+                  span до 25 лет
+                .ipoteka-props__item
+                  span Решение
+                  span Онлайн
+              .ipoteka-chars
+                .ipoteka-chars__item
+                  span документы
+                  span Паспорт РФ, документ подтверждающий дохлж, копия трудовой книжки
+                .ipoteka-chars__item
+                  span Условия
+                  span Возраст от  21 года, стаж на последнем месте работы от 3 месяцев, общий трудовой стаж от 12 месяцев
+            .ipoteka-item__right
+              .ipoteka-partner
+                .ipoteka-partner__logo: img(src="img/ipoteka"+i+".png", alt="")
+                .ipoteka-partner__name Сбербанк (Лиц №2210)
+              a(href="#").ipoteka-item__btn.btn.btn-primary отправить заявку
+              a(href="#").ipoteka-item__more 
+                span Подробнее
+                i.icm.icm-arrow-right
+        
+  section.consult-panel
+    .container
+      .consult-panel__row
+        .consult-panel__ico
+          img(src="img/consult.svg", alt="")
+        .consult-panel__text Обратитесь к специалисту за советом и помощью в ипотеке  
+        a(href="#").consult-panel__btn.btn.btn-primary Получить консультацию
+  section.home-services.home-services_grey
+    .container
+      .row
+        .col-4
+          a(href="#").service-item
+            .service-item__image(style="background-image: url(img/hs1.jpg)")
+              .service-item__value ОТ <span class="service-item__persent">8,7%</span>
+            .service-item__name Ипотека <br> на первичном рынке
+        .col-4
+          a(href="#").service-item
+            .service-item__image(style="background-image: url(img/hs2.jpg)")
+              .service-item__value ОТ <span class="service-item__persent">8,7%</span>
+            .service-item__name Ипотека <br> на вторичном рынке
+        .col-4
+          a(href="#").service-item
+            .service-item__image(style="background-image: url(img/hs3.jpg)")
+              .service-item__value ОТ <span class="service-item__persent">10,7%</span>
+            .service-item__name Семейная ипотека
+        .col-4
+          a(href="#").service-item
+            .service-item__image(style="background-image: url(img/hs4.jpg)")
+              .service-item__value ОТ <span class="service-item__persent">10,7%</span>
+            .service-item__name Ипотека <br> для юридических лиц
+        .col-8
+          a(href="#").service-item
+            .service-item__image(style="background-image: url(img/hs5.jpg)")
+              .service-item__value ОТ <span class="service-item__persent">10,7%</span>
+            .service-item__name Коммерческая ипотека
+        .col-8
+          a(href="#").service-item
+            .service-item__image(style="background-image: url(img/hs6.jpg)")
+              .service-item__value ОТ <span class="service-item__persent">10,7%</span>
+            .service-item__name Ипотека без первоначального взноса
+        .col-4
+          a(href="#").service-item
+            .service-item__image(style="background-image: url(img/hs7.jpg)")
+              .service-item__value ОТ <span class="service-item__persent">10,7%</span>
+            .service-item__name Ипотека <br> на комнату
+        .col-4
+          a(href="#").service-item
+            .service-item__image(style="background-image: url(img/hs8.jpg)")
+              .service-item__value ОТ <span class="service-item__persent">10,7%</span>
+            .service-item__name Ипотека под залог <br> имеющейся недвижимости
+        .col-4
+          a(href="#").service-item
+            .service-item__image(style="background-image: url(img/hs9.jpg)")
+              .service-item__value ОТ <span class="service-item__persent">10,7%</span>
+            .service-item__name Ипотека <br> на загородную недвижимость
+        .col-4
+          a(href="#").service-item
+            .service-item__image(style="background-image: url(img/hs10.jpg)")
+              .service-item__value ОТ <span class="service-item__persent">10,7%</span>
+            .service-item__name Субсидии
+  section.home-reviews.py-7
+    h2.h.h-big.ta-center.home-reviews__header Отзывы наших клиентов
+    .reviews-slider.swiper-container.mb-0
+      .reviews-slider__list.swiper-wrapper
+        .swiper-slide: .reviews-slider__slide
+          .reviews-slider__author
+            .reviews-slider__author-photo(style="background-image: url('img/review-photo1.jpg')" alt="")
+            .reviews-slider__author-name Вова Дикусар
+            .reviews-slider__author-sep
+          .reviews-slider__text Огромное спасибо за профессиональную помощь в приобретении недвижимости в ипотеку. Это очень серьезный шаг в жизни каждой семьи. ЦИА помогли нам в нашей непростой ситуации. Нам одобрил ипотеку один из самых надежных банков - Сбербанк. Условия кредитования были подобраны именно так, как нам удобно и комфортно. 
+        .swiper-slide: .reviews-slider__slide
+          .reviews-slider__author
+            .reviews-slider__author-photo(style="background-image: url('img/review-photo2.jpg')" alt="")
+            .reviews-slider__author-name Вова Дикусар
+            .reviews-slider__author-sep
+          .reviews-slider__text Огромное спасибо за Это очень серьезный шаг в жизни каждой семьи. ЦИА помогли нам в нашей непростой ситуации. Нам одобрил ипотеку один из самых надежных банков - Сбербанк. Условия кредитования были подобраны именно так, как нам удобно и комфортно. 
+        .swiper-slide: .reviews-slider__slide
+          .reviews-slider__author
+            .reviews-slider__author-photo(style="background-image: url('img/review-photo3.jpg')" alt="")
+            .reviews-slider__author-name Вова Дикусар
+            .reviews-slider__author-sep
+          .reviews-slider__text Огромное спасибо за профессиональную помощь в приобретении недвижимости в ипотеку. Это очень серьезный шаг в жизни каждой семьи. ЦИА помогли нам в нашей непростой ситуации. Нам одобрил ипотеку один из самых надежных банков - Сбербанк. Условия кредитования были подобраны именно так, как нам удобно и комфортно. 
+      .reviews-slider-nav
+        button.reviews-slider-nav__btn(role="prev"): i.icm.icm-angle-left
+        .swiper-pagination
+        button.reviews-slider-nav__btn(role="next"): i.icm.icm-angle-right

@@ -47,20 +47,70 @@ body{
     white-space: nowrap;
     transition: all .2s;
     &-primary{
-        background: $primary-color;
+        background-color: $primary-color;
         box-shadow: 0 0 em(29,14) rgba(15, 27, 65, 0.23);
         &:hover{
             box-shadow: 0 0 em(10,14) rgba(15, 27, 65, 0.23);
             background-color: #ffcb2e;
         }
     }
+    &-white{
+        background-color: #fff;
+        box-shadow: 0 0 em(29,14) rgba(15, 27, 65, 0.23);
+        &:hover{
+            box-shadow: 0 0 em(10,14) rgba(15, 27, 65, 0.23);
+            background-color: #ffcb2e;
+        }
+    }
+    &-sm{
+        padding: em(20,14) em(48,14);
+    }
+}
+
+
+/*-------------------------------------------------*/
+/*  author styles
+/*-------------------------------------------------*/
+
+[class^="icon-"], [class*=" icon-"]{
+    font-family: $body-font-family !important;
+}
+
+.icm{
+      font-family: 'icomoon' !important;
 }
 
 /*-------------------------------------------------*/
 /*  START: utilities */
 /*-------------------------------------------------*/
+
+.fw{
+    &-l{
+        font-weight: 300;
+    }
+    &-b{
+        font-weight: bold;
+    }
+    &-n{
+        font-weight: normal;
+    }
+    &-xb{
+        font-weight: 800;
+    }
+}
+
+.fz{
+    &-lg{
+        font-size: 3rem;
+    }
+}
+
 .link{
     color: #0075ca;
+}
+.off-link{
+    color: inherit;
+    text-decoration: none;
 }
 .input{
     background:none;
@@ -82,16 +132,19 @@ body{
     font-size: 0.8em;
 }
 .h{
-    line-height: 1;
+    line-height: 1.56;
     text-transform: uppercase;
     font-weight: bold;
+    letter-spacing: em(6.75, 45);
+    margin-bottom: 3.5rem;
     &-pre{
         font-size: 3rem;
     }
     &-big{
-        font-size: 4.5rem;
-        letter-spacing: em(6.75, 45);
-        margin-bottom: 4.5rem;
+        font-size: 4.4rem;
+    }
+    &-md{
+        font-size: 3.5rem;
     }
 }
 
@@ -366,6 +419,7 @@ body{
 .home-services{
     position: relative;
     padding-bottom: 18rem;
+    
     &:after{
         content: '';
         top: 24.5rem;
@@ -385,6 +439,14 @@ body{
     &__header{
         margin-bottom: 6.8rem;
     }
+    &_grey{
+        background-color: #f3f3f3;
+        padding: 7.5rem 0rem 9rem;
+        &:after{
+            content: none;
+            display: none;
+        }
+    }
 }
 /*-------------------------------------------------*/
 /*  END: service-item */
@@ -394,8 +456,8 @@ body{
 /*-------------------------------------------------*/
 /*  START: home-calc */
 /*-------------------------------------------------*/
+.contacts-form,
 .home-calc{
-    
     &-wrap{
         .container{
             position: relative;
@@ -1062,13 +1124,396 @@ body{
 }
 
 /*-------------------------------------------------*/
-/*  author styles
+/*  START: ipoteka */
+/*-------------------------------------------------*/
+.ipoteka-nav{
+    white-space: nowrap;
+    position: relative;
+    &__control{
+        position: absolute;
+        top: 0;
+        height: 100%;
+        width: 15rem;
+        z-index: 2;
+        cursor: pointer;
+        &[aria-disabled="true"]{
+            display: none;
+        }
+        &.swiper-prev{
+            left: 0;
+            background: linear-gradient(to right, white, transparent);
+        }
+        &.swiper-next{
+            text-align: right;
+            right: 0;
+            background: linear-gradient(to left, white, transparent);
+        }
+    }
+    &__item{
+        font-size: 1.4rem;
+        text-transform: uppercase;
+        font-weight: bold;
+        letter-spacing: 0.084rem;
+        border-bottom: .4rem solid transparent;
+        display: inline-block !important;
+        width: auto;
+        cursor: pointer;
+        &.active{
+            border-color: #ffcc00;
+        }
+    }
+}
+.ipoteka-content{
+    background-color: #f3f3f3;
+    padding: 6rem 0;
+}
+.ipoteka-item{
+    background-color: #fff;
+    border-radius: 2rem;
+    padding: 4rem 5rem;
+    display: flex;
+    &:not(:first-child){
+        margin-top: 3rem;
+    }
+    &__name{
+        font-weight: 800;
+        font-size: 2.6rem;
+        text-transform: uppercase;
+        letter-spacing: 0.156rem;
+        margin-bottom: 2rem;
+    }
+    &__desc{
+        line-height: 1.5;
+        font-size: 1.6rem;
+        margin-bottom: 4rem;
+        padding-right: 11rem;
+    }
+    &__right{
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+    }
+    &__more{
+        color: inherit;
+        text-decoration: none;
+        font-weight: 800;
+        text-transform: uppercase;
+        font-size: 1.3rem;
+        letter-spacing: 0.13rem;
+        span,.icm{
+            vertical-align: middle;
+        }
+        .icm{
+            display: inline-block;
+            margin-left: 1rem;
+            transform: rotate(90deg);
+        }
+    }
+}
+.ipoteka-props{
+    display: flex;
+    margin-bottom: 5rem;
+    &__item{
+        &:not(:first-child){
+            margin-left: 6rem;
+        }
+        
+        font-size: 1.4rem;
+        text-transform: uppercase;
+        line-height: 1;
+        &:not(&_big){
+            letter-spacing: 0.084rem;
+            display: flex;
+            flex-direction: column;
+            span:first-child{
+                margin-bottom: 0.7rem;
+                color: #6c6c6c;
+                font-weight: bold;
+            }
+            span:last-child{
+                font-size: 2.5rem;
+                font-weight: 700;
+                line-height: 1.12;
+                
+            }
+        }
+        &_big{
+            font-size: 5rem;
+            sup{
+                font-size: 0.5em;
+            }
+        }
+    }
+}
+
+.ipoteka-chars{
+    display: table;
+    line-height: 1.56;
+    &__item{
+        display: table-row;
+        &:not(:first-child){
+            span{
+                padding-top: 3rem;
+            }
+        }
+        span{
+            display: table-cell;
+            &:first-child{
+                color: #8a8a8a;
+                text-transform: uppercase;
+                letter-spacing: 0.084rem;
+                font-weight: 700;
+                padding-right: 6rem;
+            }
+        }
+    }
+}
+
+.ipoteka-partner{
+    text-align: center;
+    font-size: 1.5rem;
+    &__logo{
+        margin-bottom: 1.5rem;
+        img{
+            max-width: 100%;
+        }
+    }
+}
+/*-------------------------------------------------*/
+/*  END: ipoteka */
 /*-------------------------------------------------*/
 
-[class^="icon-"], [class*=" icon-"]{
-    font-family: $body-font-family !important;
+/*-------------------------------------------------*/
+/*  START: big form */
+/*-------------------------------------------------*/
+.page__big-form{
+    padding: 7rem 0;
 }
+.big-form{
+    border-radius: 2rem;
+    background-color: #0075ca;
+    background-image: linear-gradient(to top, #0075ca 0%, #080624 100%);
+    padding: 8rem 10rem;
+    color: white;
+    &__header{
+        font-size: 3.5rem;
+        font-weight: 700;
+        line-height: 1.71;
+        text-transform: uppercase;
+        letter-spacing: 0.525rem;
+        text-align: center;
+        margin-bottom: 11.5rem;
+    }
+    &__row{
+        display: flex;
+        .input,.btn{
+            flex: 1 1 0;
+            &:not(:first-child){
+                margin-left: 3rem;
+            }
+        }
+        margin-bottom: 11rem;
+    }
+    &__footer{
+        text-align: center;
+        font-size: 3rem;
+        font-weight: 300;
+        span{
+            display: block;
+            margin-bottom: 1rem;
+        }
+    }
+    &__tel{
+        font-size: 7rem;
+        font-weight: 700;
+        line-height: 1;   
+    }
+    
+}
+/*-------------------------------------------------*/
+/*  END: big form */
+/*-------------------------------------------------*/
 
-.icm{
-      font-family: 'icomoon' !important;
+/*-------------------------------------------------*/
+/*  START: inner page */
+/*-------------------------------------------------*/
+.inner-page{
+    padding: 8rem 0 14rem;
+    background-color: #f3f3f3;
 }
+/*-------------------------------------------------*/
+/*  END: inner page */
+/*-------------------------------------------------*/
+
+/*-------------------------------------------------*/
+/*  START: action */
+/*-------------------------------------------------*/
+.action{
+    &-list{
+        &__item{
+            &:not(:first-child){
+                margin-top: 3rem;
+            }
+        }
+    }
+    &-item{
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: flex-start;
+        height: 34.7rem;
+        border-radius: 2rem;
+        overflow: hidden;
+        background-size: cover;
+        background-position: top center;
+        position: relative;
+        color: white;
+        padding: 6rem;
+
+        &>*{
+            position: relative;
+            z-index: 1;
+        }
+        &:after{
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: #242333;
+            opacity: 0.4;
+        }
+        &__discount{
+            font-size: 3.5rem;
+            color: #ffc000;
+            span{
+                font-weight: 700;
+                font-size: 8rem;
+            }
+        }
+        &__top{
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            &-right{
+                position: absolute;
+                top: 0;
+                right: 0;
+                line-height: 1;
+            }
+        }
+        &__name{
+            font-size: 2.6rem;
+            line-height: 1.54;
+            text-transform: uppercase;
+            letter-spacing: 0.156rem;
+            font-weight: 800;
+            margin-bottom: 1.3rem;
+        }
+        &__desc{
+            font-size: 1.8rem;
+        }
+        &__btn{
+            font-size: 1.3rem;
+        }
+    }
+}
+/*-------------------------------------------------*/
+/*  END: action */
+/*-------------------------------------------------*/
+.news-list{
+    &__item{
+        &:not(:first-child){
+            margin-top: 3rem;
+        }
+    }
+}
+.news-item{
+    background-color: #ffffff;
+    border-radius: 1rem;
+    box-shadow: 0 0 3.2rem rgba(15, 27, 65, 0.07);
+    min-height: 30.3rem;
+    display: flex;
+    &__image{
+        flex: 0 0 41.3rem;
+        background-size: cover;
+        background-position: top center;
+        margin-right: 4rem;
+
+    }
+    &__content{
+        padding: 5.5rem;
+        padding-bottom: 2rem;
+        position: relative;
+        line-height: 1.56;
+        display: flex;
+        flex-direction: column;
+    }
+    &__date{
+        position: absolute;
+        transform: rotate(-90deg);
+        right: calc(100% - 6.5rem);
+        font-size: 1.5rem;
+        text-transform: uppercase;
+        font-weight: 300;
+        color: #a6a6a6;
+        top: 8rem;
+    }
+    &__name{
+        font-size: 1.8rem;
+        font-weight: 800;
+        text-transform: uppercase;
+        margin-bottom: 2rem;
+        letter-spacing: 0.108rem;
+    }
+    &__desc{
+        font-size: 1.8rem;
+    }
+    &__more{
+        width: 4.8rem;
+        height: 4.8rem;
+        border-radius: 50%;
+        box-shadow: 0 0.8rem 1.8rem rgba(39, 53, 119, 0.15);
+        background-color: #ffcc00;
+        transition: all .3s;
+        &:hover{
+            background-color: #FFCB2E;
+            box-shadow: 0 0.8rem 2.8rem rgba(39, 53, 119, 0.35);
+        }
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        &:before{
+            content: '';
+            border: .8rem solid transparent;
+            border-left-color: black;
+            border-left-width: 1.2rem;
+            height: 0;
+            padding: 0;
+            display: inline-block;
+            line-height: 0;
+            transforM: translate(25%);
+            transition: transform .3s;
+        }
+
+
+    }
+    &__footer{
+        margin-top: auto;
+        text-align: right;
+    }
+}
+.text-content{
+    line-height: 1.63;
+    p{
+        margin: 1.5rem 0;
+    }
+}
+/*-------------------------------------------------*/
+/*  ... */
+/*-------------------------------------------------*/
+

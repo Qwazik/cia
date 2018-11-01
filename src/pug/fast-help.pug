@@ -1,0 +1,76 @@
+extends _template
+
+block main
+  section
+    .container
+      .h.h-big.ta-center.my-6 Помогаем быстро и без проблем получить ипотеку в любых ситуациях
+      .row.my-6.fz-lg.fw-l
+        .col Мы выделили ряд алгоритмов для работы с любым типом клиента и готовы решить все проблемы, связанные с получением ипотеки
+        .col-auto
+          a(href="#").btn.btn-primary Получить консультацию
+  section.home-services.home-services_grey
+    h2.h.h-big.ta-center.mb-6 Выберите услугу
+    .container
+      .row
+        .col-4
+          a(href="#").service-item
+            .service-item__image(style="background-image: url(img/hs1.jpg)")
+              .service-item__value ОТ <span class="service-item__persent">8,7%</span>
+            .service-item__name Ипотека <br> на первичном рынке
+        .col-4
+          a(href="#").service-item
+            .service-item__image(style="background-image: url(img/hs2.jpg)")
+              .service-item__value ОТ <span class="service-item__persent">8,7%</span>
+            .service-item__name Ипотека <br> на вторичном рынке
+        .col-4
+          a(href="#").service-item
+            .service-item__image(style="background-image: url(img/hs3.jpg)")
+              .service-item__value ОТ <span class="service-item__persent">10,7%</span>
+            .service-item__name Семейная ипотека
+        .col-4
+          a(href="#").service-item
+            .service-item__image(style="background-image: url(img/hs4.jpg)")
+              .service-item__value ОТ <span class="service-item__persent">10,7%</span>
+            .service-item__name Ипотека <br> для юридических лиц
+        .col-8
+          a(href="#").service-item
+            .service-item__image(style="background-image: url(img/hs5.jpg)")
+              .service-item__value ОТ <span class="service-item__persent">10,7%</span>
+            .service-item__name Коммерческая ипотека
+        .col-8
+          a(href="#").service-item
+            .service-item__image(style="background-image: url(img/hs6.jpg)")
+              .service-item__value ОТ <span class="service-item__persent">10,7%</span>
+            .service-item__name Ипотека без первоначального взноса
+        .col-4
+          a(href="#").service-item
+            .service-item__image(style="background-image: url(img/hs7.jpg)")
+              .service-item__value ОТ <span class="service-item__persent">10,7%</span>
+            .service-item__name Ипотека <br> на комнату
+        .col-4
+          a(href="#").service-item
+            .service-item__image(style="background-image: url(img/hs8.jpg)")
+              .service-item__value ОТ <span class="service-item__persent">10,7%</span>
+            .service-item__name Ипотека под залог <br> имеющейся недвижимости
+        .col-4
+          a(href="#").service-item
+            .service-item__image(style="background-image: url(img/hs9.jpg)")
+              .service-item__value ОТ <span class="service-item__persent">10,7%</span>
+            .service-item__name Ипотека <br> на загородную недвижимость
+        .col-4
+          a(href="#").service-item
+            .service-item__image(style="background-image: url(img/hs10.jpg)")
+              .service-item__value ОТ <span class="service-item__persent">10,7%</span>
+            .service-item__name Субсидии
+  section.page__big-form
+    .container
+      .big-form
+        .big-form__header Сделайте первый шаг <br> к получению выгодной ипотеки
+        .big-form__row
+          input.input(type="text" placeholder="Имя").input-white
+          input.input(type="text" placeholder="Телефон").input-white
+          button(type="submit").btn.btn-primary Заказать консультацию
+        .big-form__footer
+          span или позвоните
+          .big-form__tel  8-800-301-00-75 
+

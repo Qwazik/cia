@@ -5,7 +5,8 @@
     "swiper": "^4.4.1",
     "nouislider": "^12.1.0",
     "parsleyjs": "^2.8.1",
-    "jquery.maskedinput": "^1.4.1"
+    "jquery.maskedinput": "^1.4.1",
+    "fancybox": "^3.5.2"
   },
   "authors": [
     "Alexey Kovakin <qwazik21@gmail.com>"
