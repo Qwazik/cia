@@ -83,7 +83,14 @@ body{
 /*-------------------------------------------------*/
 /*  START: utilities */
 /*-------------------------------------------------*/
-
+.ns{
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+.bg-grey{
+    background-color: #F3F3F3;
+}
 .fw{
     &-l{
         font-weight: 300;
@@ -1513,6 +1520,289 @@ body{
         margin: 1.5rem 0;
     }
 }
+
+.mortgage-first{
+    background-color: #d2eaff;
+    padding: 9rem 0 6.2rem;
+    margin-bottom: 5.7rem;
+    &-header{
+        line-height: 1.2;
+        font-weight: 700;
+        font-size: 5rem;
+        margin-bottom: 2.5rem;
+    }
+    &-desc{
+        margin-bottom: 3.5rem;
+        line-height: 1.6;
+        font-size: 2rem;
+        font-weight: 300;
+    }
+    &-request{
+        display: flex;
+        align-items: center;
+     
+        &__persent{
+            font-size: 5rem;
+            background-image: url('../img/circle.svg');
+            background-size: cover;
+            width: 13.9rem;
+            height: 13.9rem;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 1.6rem;
+        }
+        &__desc{
+            text-transform: uppercase;
+            font-size: 2rem;
+            font-weight: 700;
+            line-height: 1.6;
+        }
+    }
+    &-form{
+        position: absolute;
+        border-radius: 2rem;
+        background-color: #ffcc00;
+        background-image: linear-gradient(to top, #0075ca 0%, #080624 100%);
+        padding: 8rem 10rem 5rem;
+        color: white;
+        width: 100%;
+        &:after{
+            content: '';
+            right: 100%;
+            height: 100%;
+            bottom: 1rem;
+            width: 2.2rem;
+            background-image: url('../img/mortage-form-shadow.svg');
+            display: block;
+            position: absolute;
+            background-size: cover;
+        }
+        &__wrapper{
+            position: relative;
+            width: 48.5rem;
+            min-height: 40rem;
+            
+        }
+        &__row{
+            font-size: 1.8rem;
+            font-weight: 300;
+            display: flex;
+            flex-direction: column;
+            span:first-child{
+                margin-bottom: 0.5rem;
+            }
+            span:last-child{
+                font-weight: bold;
+                font-size: 4rem;
+                line-height: 1;
+            }
+            &:not(:first-child){
+                margin-top: 3rem;
+            }
+        }
+        &__footer{
+            margin-top: 6rem;
+        }
+    }
+}
+
+.mortgage-services{
+    padding: 8.5rem 0 2rem;
+    &-list{
+        &__ico{
+            margin-right: 4.3rem;
+            width: 6.4rem;
+            text-align: center;
+            
+        }
+        &__desc{
+            font-size: 1.8rem;
+            font-weight: 300;
+            line-height: 1.44;
+        }
+        &__item{
+            display: flex;
+            align-items: center;
+            &:not(:first-child){
+                margin-top: 3.5rem;
+            }
+        
+        }
+    }
+}
+
+.mortgage-form{
+    background-color: #121212;
+    background-image:url(../img/mortgage-form-img.png), linear-gradient(to top, #0075ca 0%, #080624 100%);
+    background-repeat: no-repeat;
+    background-position: bottom right;
+    color: white;
+    padding: 9rem 0rem 10rem;
+    &-desc{
+        line-height: 2.22;
+        font-size: 1.8rem;
+        font-weight: 300;
+        padding-left: 2rem;    
+        margin: 0;
+    }
+    &__left{
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+    &__right{
+        display: flex;
+        align-items: flex-end;
+        justify-content: flex-end;
+    }
+    &__form{
+        display: flex;
+        flex-direction: column;
+    
+        .input{
+            width: 38rem;
+            max-width: 100%;
+        }
+        &-row{
+            &:not(:first-child){
+                margin-top: 4rem;
+            }
+        }
+    }
+}
+.mortgage-ipoteka{
+    padding: 9rem 0;
+}
+.mortgage-partners{
+    padding: 10rem 0 11rem;
+    overflow: hidden;
+    .swiper-slide{
+        width: auto;
+        display: inline-block;
+    }
+}
+.mortgage-info{
+    padding: 8rem 0 10rem;
+    overflow: hidden;
+    .swiper-container{
+        overflow: visible;
+    }
+    &-slider{
+        position: relative;
+        &:after,&:before{
+            content: '';
+            top: -2rem;
+            position: absolute;
+            bottom: -2rem;
+            width: 100vw;
+            background: #F3F3F3;
+            opacity: 0.5;
+            z-index: 2;
+            
+        }
+        &:after{
+            left: 100%;
+        }
+        &:before{
+            right: 100%;
+        }
+    }
+    
+}
+/*-------------------------------------------------*/
+/*  START: info-item */
+/*-------------------------------------------------*/
+.info-item{
+  box-shadow: 0 0 3.2rem rgba(15, 27, 65, 0.07);
+    border-radius: 2rem;
+    background-color: #ffffff;
+    padding: 3rem;
+    padding-bottom: 8rem;
+    position: relative;
+    margin-bottom: 5rem;
+    &__date{
+        color: #818181;
+        font-weight: 300;
+        font-size: 1.5rem;
+        margin-bottom: 1.5rem;
+        line-height: 1;
+    }
+    &__name{
+        font-weight: 800;
+        font-size: 1.8rem;
+        line-height: 1.56;
+        text-transform: uppercase;
+        letter-spacing: 0.108rem;
+        margin-bottom: 3rem;
+    }
+    &__desc{
+        font-size: 1.8rem;
+        font-weight: 300;
+        line-height: 1.56;
+    }
+    &__more{
+        @extend .news-item__more;
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translate(-50%,50%);
+    }
+}
+/*-------------------------------------------------*/
+/*  END: info-item */
+/*-------------------------------------------------*/
+/*-------------------------------------------------*/
+/*  START: vertical-item */
+/*-------------------------------------------------*/
+.vertical-item,.horizontal-item{
+    box-shadow: 0 0 3.2rem rgba(15, 27, 65, 0.07);
+    background: #fff;
+    border-radius: 2rem;
+    overflow: hidden;
+    height: 100%;
+    &-img{
+        height: 21.1rem;
+        background-size: cover;
+        background-position: top center;
+    }
+    &-content{
+        padding: 4rem 5rem 5rem;
+    }
+    &-header{
+        font-size: 1.8rem;
+        line-height: 1.56;
+        letter-spacing: 0.108rem;
+        text-transform: uppercase;
+        font-weight: 800;
+        margin-bottom: 3rem;
+    }
+    &-desc{
+        font-size: 1.8rem;
+        font-weight: 300;
+        line-height: 1.56;
+
+    }
+}
+
+.horizontal-item{
+    display: flex;
+    border-radius: 1rem;
+    min-height: 24.3rem;
+    &-img{
+        height: 100%;
+        flex: 0 0 28rem;
+    }
+    &-content{
+        padding: 4rem 3rem 3rem;
+    }
+    &-header{
+        margin-bottom: 2rem;
+    }
+}
+/*-------------------------------------------------*/
+/*  END: vertical-item */
+/*-------------------------------------------------*/
 /*-------------------------------------------------*/
 /*  ... */
 /*-------------------------------------------------*/

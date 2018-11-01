@@ -1,0 +1,151 @@
+extends _template
+
+block main
+  .page__mortgage.mortgage-first
+    .container
+      .row
+        .col
+          .mortgage-first-header Ищете выгодную ипотеку?
+          .mortgage-first-desc Заполните единую онлайн-заявку, и мы покажем <br>  банки, в которых у вас высокая вероятность <br> получить ипотеку.  <br>
+          .mortgage-first-request
+            .mortgage-first-request__persent 98% 
+            .mortgage-first-request__desc отправленых заявок <br> получают одобрение.
+        .col
+          .mortgage-first-form__wrapper
+            .mortgage-first-form
+              .mortgage-first-form__row
+                span Низкие ставки
+                span от 6%
+              .mortgage-first-form__row
+                span Первоначальный взнос
+                span от 6%
+              .mortgage-first-form__row
+                span Решение от банка
+                span 1 час
+              .mortgage-first-form__footer
+                a(href="#").btn.btn-primary Оставить заявку
+  section.mortgage-services
+    .container
+      .row
+        .col
+          .h.h-big.mb-0 Кому <br>необходимы<br> наши услуги
+          .mortgage-services-img: img(src="img/wnws-img.jpg", alt="")
+        .col
+          .mortgage-services-list
+            .mortgage-services-list__item
+              .mortgage-services-list__ico: img(src="img/wnws1.svg", alt="")
+              .mortgage-services-list__desc Для тех, кто хочет избежать рисков при выборе Ипотеки
+            .mortgage-services-list__item
+              .mortgage-services-list__ico: img(src="img/wnws2.svg", alt="")
+              .mortgage-services-list__desc Для тех кто испытывает трудности любого характера при получении ипотеки
+            .mortgage-services-list__item
+              .mortgage-services-list__ico: img(src="img/wnws3.svg", alt="")
+              .mortgage-services-list__desc Для тех, кому нужны лучшие ставки 			и сроки
+            .mortgage-services-list__item
+              .mortgage-services-list__ico: img(src="img/wnws4.svg", alt="")
+              .mortgage-services-list__desc Для тех, у кого нет навыков и времени разбираться с бумагами и оформлением документов
+            .mortgage-services-list__item
+              .mortgage-services-list__ico: img(src="img/wnws5.svg", alt="")
+              .mortgage-services-list__desc Для иностранных граждан, которые хотят получить ипотеку в Санкт-Петербурге
+  section.mortgage-form        
+    .container
+      .row
+        .col.mortgage-form__left
+          .h.h-big рефинансирование <br> ипотечного <br> кредита
+          ul.mortgage-form-desc
+            li Ставка от 8% в рублях
+            li Экономия до 0,5% от ставки банка
+            li Срок до 25 лет
+            li Сумма кредита до 100 млн. рублей
+        .col.mortgage-form__right
+          form(action="#" data-parsley-validate).mortgage-form__form
+            .mortgage-form__form-row
+              input.input(required type="text" placeholder="Имя").input-white
+            .mortgage-form__form-row
+              input.input(required type="tel" placeholder="Телефон").input-white
+            .mortgage-form__form-row
+              button.btn.btn-primary(type="submit") Оставить заявку
+  section.bg-grey.mortgage-ipoteka
+    .container
+      .h.h-big.ta-center Виды ипотеки
+      .row
+        .col-4
+          .vertical-item
+            .vertical-item-img(style="background-image: url(img/mi1.jpg)")
+            .vertical-item-content
+              .vertical-item-header Ипотека в силу закона
+              .vertical-item-desc Это стардартная в общем понимании схема, когда залогом для банка является приобретаемая недвижимость
+        .col-4
+          .vertical-item
+            .vertical-item-img(style="background-image: url(img/mi2.jpg)")
+            .vertical-item-content
+              .vertical-item-header Ипотека в силу договора
+              .vertical-item-desc Это стардартная в общем понимании схема, когда залогом для банка является приобретаемая недвижимость
+        .col-4
+          .vertical-item
+            .vertical-item-img(style="background-image: url(img/mi3.jpg)")
+            .vertical-item-content
+              .vertical-item-header Обратная ипотека
+              .vertical-item-desc Это особый финансовый инструмент, который превращает недвижимость в деньги с сохранением прав на нее. 
+  section.mortgage-partners
+    .h.h-big.ta-center.mb-8 ОФИЦИАЛЬНЫЕ ПАРТНЕРЫ
+    .container-fluid: .swiper-container
+      .swiper-wrapper
+        .swiper-slide: img(src="img/mp1.png", alt="")
+        .swiper-slide: img(src="img/mp2.png", alt="")
+        .swiper-slide: img(src="img/mp3.png", alt="")
+        .swiper-slide: img(src="img/mp4.png", alt="")
+        .swiper-slide: img(src="img/mp5.png", alt="")
+        .swiper-slide: img(src="img/mp6.png", alt="")
+        .swiper-slide: img(src="img/mp6.png", alt="")
+        .swiper-slide: img(src="img/mp6.png", alt="")
+        .swiper-slide: img(src="img/mp6.png", alt="")
+        .swiper-slide: img(src="img/mp6.png", alt="")
+  section.mortgage-info.bg-grey
+    .container
+      .h.h-big.ta-center Полезная  информация
+      .mortgage-info-slider
+        .swiper-container
+          .swiper-wrapper
+            -for(var i=0;i<10;i++)
+              .swiper-slide
+                .info-item
+                  .info-item__date 04.09.2018
+                  .info-item__name Мы открываем новые горизонты
+                  .info-item__desc Мобильный гусеничный подъемник - самая простая возможность для инвалидов в кресло-коляске преодолеть препятствие в виде лестничного марша, однако не смотря на свою простоту доказывает, что может делать «большие» добрые дела. 
+                  a(href="#").info-item__more
+  section.consult-panel
+    .container
+      .consult-panel__row
+        .consult-panel__ico
+          img(src="img/consult.svg", alt="")
+        .consult-panel__text Обратитесь к специалисту за советом и помощью в ипотеке  
+        a(href="#").consult-panel__btn.btn.btn-primary Получить консультацию
+  section.bg-grey.mortgage-ipoteka
+    .container
+      .h.h-big.ta-center Какие документы потребуются для получения ипотеки 
+      .row
+        .col-12.mb-3
+          .horizontal-item
+            .horizontal-item-img(style="background-image: url(img/md1.jpg)")
+            .horizontal-item-content
+              .horizontal-item-header Документы для идентификации личности клиента
+              .horizontal-item-desc Идентификация клиента в банке - 115-ФЗ предусматривает несколько вариантов процедуры - одно из действий, предусмотренных законодательной борьбой с финансированием терроризма и отмыванием преступных доходов. Применение этой нормы закона рассмотрим в ответах на часто задаваемые вопросы граждан и организаций.
+        .col-12.mb-3
+          .horizontal-item
+            .horizontal-item-img(style="background-image: url(img/md2.jpg)")
+            .horizontal-item-content
+              .horizontal-item-header Документы подтверждающие занятость и доход клиета
+              .horizontal-item-desc 
+                | Существует четыре способа подтвердить ваши доходы:
+                ul.ns
+                  li Справка по форме 2 НДФЛ, которая выдается работодателем;
+                  li Справка по форме банка; 
+                  li Справка по форме работодателя;
+                  li Справка о заявленном доходе.
+        .col-12
+          .horizontal-item
+            .horizontal-item-img(style="background-image: url(img/md3.jpg)")
+            .horizontal-item-content
+              .horizontal-item-header Дополнительные документы, подтверждающие статус и финансовую состоятельность клиента
+              .horizontal-item-desc Мобильный гусеничный подъемник - самая простая возможность для инвалидов в кресло-коляске преодолеть препятствие в виде лестничного марша, однако не смотря на свою простоту доказывает, что может делать «большие» добрые дела. 

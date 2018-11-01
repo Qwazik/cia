@@ -72,6 +72,20 @@ $(function(){
     });
   });
 
+  $('.mortgage-partners .swiper-container').each(function(){
+    var swiper = new Swiper($(this), {
+      slidesPerView: 'auto',
+      spaceBetween: 100
+    });
+  });
+  $('.mortgage-info .swiper-container').each(function(){
+    var swiper = new Swiper($(this), {
+      slidesPerView: 3,
+      spaceBetween: 30,
+      loop: true
+    });
+  });
+
 
 
   $('.home-slider').each(function(){
@@ -131,7 +145,8 @@ $(function(){
         'Новости': 'novosti.html',
         'Ипотека': 'ipoteka.html',
         'Быстрая помощь': 'fast-help.html',
-        'Контакты': 'contacts.html'
+        'Контакты': 'contacts.html',
+        'Выгодная ипотека': 'mortgage.html'
       });
     });
   }
