@@ -27,10 +27,10 @@ block main
   section.mortgage-services
     .container
       .row
-        .col
+        .col-12.col-lg-6
           .h.h-big.mb-0 Кому <br>необходимы<br> наши услуги
           .mortgage-services-img: img(src="img/wnws-img.jpg", alt="")
-        .col
+        .col-12.col-lg-6
           .mortgage-services-list
             .mortgage-services-list__item
               .mortgage-services-list__ico: img(src="img/wnws1.svg", alt="")
@@ -50,14 +50,14 @@ block main
   section.mortgage-form        
     .container
       .row
-        .col.mortgage-form__left
+        .col-12.col-md-6.mb-3.mb-md-0.mortgage-form__left
           .h.h-big рефинансирование <br> ипотечного <br> кредита
           ul.mortgage-form-desc
             li Ставка от 8% в рублях
             li Экономия до 0,5% от ставки банка
             li Срок до 25 лет
             li Сумма кредита до 100 млн. рублей
-        .col.mortgage-form__right
+        .col-12.col-md-6.mortgage-form__right
           form(action="#" data-parsley-validate).mortgage-form__form
             .mortgage-form__form-row
               input.input(required type="text" placeholder="Имя").input-white
@@ -68,20 +68,20 @@ block main
   section.bg-grey.mortgage-ipoteka
     .container
       .h.h-big.ta-center Виды ипотеки
-      .row
-        .col-4
+      .row.justify-content-center
+        .col-12.col-md-6.col-lg-4.mb-3.mb-lg-0
           .vertical-item
             .vertical-item-img(style="background-image: url(img/mi1.jpg)")
             .vertical-item-content
               .vertical-item-header Ипотека в силу закона
               .vertical-item-desc Это стардартная в общем понимании схема, когда залогом для банка является приобретаемая недвижимость
-        .col-4
+        .col-12.col-md-6.col-lg-4.mb-3.mb-lg-0
           .vertical-item
             .vertical-item-img(style="background-image: url(img/mi2.jpg)")
             .vertical-item-content
               .vertical-item-header Ипотека в силу договора
               .vertical-item-desc Это стардартная в общем понимании схема, когда залогом для банка является приобретаемая недвижимость
-        .col-4
+        .col-12.col-md-6.col-lg-4.mb-3.mb-lg-0
           .vertical-item
             .vertical-item-img(style="background-image: url(img/mi3.jpg)")
             .vertical-item-content

@@ -5,15 +5,22 @@
         .col-auto
           a.main-logo(href="/")
             img(src="img/logo.jpg", alt="Центральное ипотечное агентство")
-        .col-auto
-          p г. Санкт-Петербург, Невский проспект дом 80 офис 2-3
-          p График работы: <b>9.00 — 20.00</b> <span style="color: #b4b4b4;">Сб,Вс — выходной</span>
-        .col-auto
-          a(href="").main-header__scheme Схема проезда
-          a(href="mailto:info@ipotekavspb.ru").main-header__email info@ipotekavspb.ru
-        .col-auto
+        .col
+          .row.main-header__center
+            .col-auto.main-header__address
+              p г. Санкт-Петербург, Невский проспект дом 80 офис 2-3
+              p График работы: <b>9.00 — 20.00</b> <span style="color: #b4b4b4;">Сб,Вс — выходной</span>
+            .col-auto.main-header__contacts-info
+              a(href="").main-header__scheme Схема проезда
+              a(href="mailto:info@ipotekavspb.ru").main-header__email info@ipotekavspb.ru
+        .col-auto.main-header__feedback-block
           a(href="tel:+78003010075").main-header__tel  8-800-301-00-75
           a(href="#").btn.btn-primary.main-header__feedback Получить  консультацию
+        .col-auto.d-md-none
+          .mobile-nav-btn
+            span
+            span
+            span
 .page__menu.main-nav-container
   .container: nav.main-nav
     a(href="#").main-nav__item Главная

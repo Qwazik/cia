@@ -83,6 +83,9 @@ body{
 /*-------------------------------------------------*/
 /*  START: utilities */
 /*-------------------------------------------------*/
+.nowrap{
+    white-space: nowrap;
+}
 .ns{
     list-style-type: none;
     padding: 0;
@@ -178,11 +181,22 @@ body{
 /*-------------------------------------------------*/
 /*  START: main-header */
 /*-------------------------------------------------*/
+.main-footer__logo,
+.main-logo{
+    display: inline-block;
+    max-width: 20rem;
+    img{
+        max-width: 100%;
+    }
+}
 .main-header{
     padding: 0.9rem 0 1.6rem;
     &__row{
         align-items: center;
         justify-content: space-between;
+    }
+    &__center{
+        justify-content: space-around;
     }
     &__feedback{
         font-size: 1.3rem;
@@ -241,7 +255,7 @@ body{
 .home-slider{
     position: relative;
     &__item{
-        height: 55.7rem;
+        min-height: 55.7rem;
         display: flex;
         padding: 5.3rem 0;
         background-size: cover;
@@ -356,10 +370,13 @@ body{
     margin-bottom: 3rem;
     align-items: center;
     line-height: 1.75;
+    height: calc(100% - 3rem);
+    margin-bottom: 3rem;
     &__ico{
         border-radius: 50%;
         background-color: #fff;
-        min-width: 11.1rem;
+        flex: 0 0 11.1rem;
+        max-width: 11.1rem;
         height: 11.1rem;
         display: flex;
         align-items: center; 
@@ -397,6 +414,8 @@ body{
     }
     &__image{
         height: 24.2rem;
+        background-size: cover;
+        background-position: left bottom;
     }
     &__name{
         text-align: center;
@@ -465,6 +484,9 @@ body{
 /*-------------------------------------------------*/
 .contacts-form,
 .home-calc{
+    .input{
+        width: 100%;
+    }
     &-wrap{
         .container{
             position: relative;
@@ -512,11 +534,10 @@ body{
         justify-content: center;
         padding: 4rem;
         font-size: 1.8rem;
+        flex: 1 1 0;
     }
     &__row{
-        &:not(:first-child){
             margin-top: 5rem;
-        }
     }
 }
 
@@ -576,6 +597,7 @@ body{
     padding: 3rem;
     margin-bottom: 7rem;
     font-size: 1.8rem;
+    white-space: nowrap;
     &__row{
         display: flex;
         justify-content: space-between;
@@ -821,7 +843,7 @@ body{
         background-image: linear-gradient(to top, #0075ca 0%, #080624 100%);
         color: white;
         border-radius: 3rem;
-        padding: 12rem 10rem 15.2rem; 
+        padding: 12rem 5vw 15.2rem; 
         margin-top: 9rem;
         position: relative;
         margin-bottom: 5.5rem;
@@ -902,6 +924,9 @@ body{
         border-radius: 50%;
         margin: -1.6rem 0;
     }
+    &__text{
+        padding: 0rem 3rem;
+    }
     &__row{
         align-items: center;
         justify-content: space-between;
@@ -934,6 +959,9 @@ body{
         align-items: center;
         justify-content: center;
         height: 15.4rem;
+        img{
+            max-width: 100%;
+        }
         &:first-child{
             margin-bottom: 3rem;
         }
@@ -1406,6 +1434,7 @@ body{
             display: flex;
             align-items: center;
             justify-content: space-between;
+            padding-right: 26rem;
             &-right{
                 position: absolute;
                 top: 0;
@@ -1544,7 +1573,9 @@ body{
         &__persent{
             font-size: 5rem;
             background-image: url('../img/circle.svg');
-            background-size: cover;
+            background-size: contain;
+            background-position: center center;
+            background-repeat: no-repeat;
             width: 13.9rem;
             height: 13.9rem;
             display: inline-flex;
@@ -1803,7 +1834,564 @@ body{
 /*-------------------------------------------------*/
 /*  END: vertical-item */
 /*-------------------------------------------------*/
+/*-- START: mobile nav --*/
+.mobile-nav{
+	padding: 0;
+	margin: 0;
+	position: fixed;
+	z-index: 20;
+	box-shadow: 0 0 30px grey;
+	top:0;
+	left: 0;
+	background: white;
+	height: 100%;
+	overflow: auto;
+	width: 260px;
+	transition: transform .3s;
+	&-btn{
+		background: none;
+		border:none;
+		padding:0;
+		span{
+			width: 26px;
+			height: 4px;
+			border-radius: 4px;
+			display: block;
+			background: black;
+			transition: all .3s;
+			&:not(:first-child){
+				margin-top: 4px;
+			}
+		}
+		&.active{
+			span{
+				&:nth-child(1){
+					transform: translate(0px,8px) rotate(45deg);
+				}
+				&:nth-child(2){
+					opacity: 0;
+				}
+				&:nth-child(3){
+					transform: translate(0px,-8px) rotate(-45deg);
+				}
+			}
+		}
+	}
+	@media screen and (min-width: 992px){
+		display: none;
+	}
+	&:not(.active){transform: translate(-150%,0)}
+	&__parent{
+		position: relative;
+	}
+	&__list,&__dropdown{
+		@extend .ns;
+		&-toggler{
+			background:none;
+			position: absolute;
+			padding: 5px;
+			border:none;
+			right: 2rem;
+			top: 1rem;
+			&:before{
+				content: '';
+				display: block;
+				border: 5px solid transparent;
+				border-top-color: #000;
+				border-top-width: 7px;
+				transform: translate(0,3px);
+			}
+		}
+	}
+	&__dropdown:not(.active){
+		display: none;
+	}
+	&__dropdown{
+		padding-left: 1rem;
+		font-size: 0.9em;
+		.mobile-nav__link{
+			padding-top: 0.5rem;
+			padding-bottom: 0.5rem;
+		}
+	}
+	&__section{
+		padding: 1rem 0;
+		&:not(:first-child){
+			border-top: 1px solid rgba(black ,.3);
+		}
+		&_1{
+			text-transform: uppercase;
+		}
+	}
+	&__link{
+		display: block;
+		padding: 1rem 3rem;
+		text-decoration: none;
+		color: inherit;
+	}
+}
+/*-- END: mobile nav --*/
 /*-------------------------------------------------*/
 /*  ... */
 /*-------------------------------------------------*/
 
+@media screen and (max-width: 992px){
+    .h{
+        br{
+            display: none;
+        }
+    }
+    .mortgage{
+        &-first{
+            margin-bottom: 0;
+            &-request{
+                &__persent{
+                    font-size: 4rem;
+                }
+            }
+        }
+        &-services{
+            padding: 7rem 0;
+            .h{
+                margin-bottom: 5rem !important;
+            }
+        }
+    }
+    .mortgage-services-img{
+        display: none;
+    }
+    .ipoteka-props{
+        flex-wrap: wrap;
+        margin-bottom: 0;
+        &__item{
+            margin-right: 3rem;
+            margin-bottom: 3rem;
+            margin-left: 0 !important;
+            &_big{
+                min-width: 100%;
+            }
+        }
+    }
+    .ipoteka-item{
+        padding: 3rem;
+        flex-direction: column;
+        &__desc{
+            padding-right: 0;
+        }
+        &__right{
+            display: flex;
+            flex-direction: row;
+            margin-top: 5rem;
+            flex-wrap: wrap;
+            justify-content: center;
+            &>*{
+                margin-left: 2rem;
+                margin-right: 2rem;
+                margin-bottom: 3rem;
+            }
+        }
+    }
+    .big-form{
+        &__header{
+            margin-bottom: 5rem;
+            font-size: 2.5rem;
+        }
+        &__row{
+            flex-wrap: wrap;
+            .input{
+                margin-bottom: 3rem;
+            }
+        }
+    }
+    .contacts-form,
+    .home-calc{
+        display: flex;
+        flex-direction: column;
+        &__right{
+            flex-basis: auto;
+        }
+    }
+    .reviews-slider{
+        margin-left: -50rem;
+        margin-right: -50rem;
+        margin-bottom: 10rem;
+    }
+    .achives-table{
+        flex-wrap: wrap;
+        border:none;
+        justify-content: center;
+        &__item{
+            flex: 0 1 calc(50% - 2rem);
+            max-width: calc(50% - 2rem);
+            border: 1px solid black;
+            border-radius: 2rem;
+            margin: 0 1rem;
+            margin-bottom: 2rem;
+        }
+    }
+    .main-footer__schedule{
+        margin-right: 0;
+        margin-bottom: 3rem;
+    }
+    .big-offsets{
+        margin: 7rem 0 10rem;
+    }
+    .main-logo{
+        max-width: 15rem;
+    }
+    .main-header{
+        &__center{
+            flex-direction: column-reverse;
+            .col-auto:last-child{
+                margin-bottom: 1rem;
+            }
+        }
+    }
+
+    .home-feature{
+        &__ico{
+            
+            height: 8rem;
+            flex-basis: 8rem;
+            max-width: 8rem;
+            padding: 2rem;
+            img{
+                max-width: 100%;
+            }
+        }
+    }
+
+    .service-item{
+        &__image{
+            height: 20rem;
+        }
+    }
+
+    .news-item{
+        flex-direction: column;
+        
+        &__image{
+            margin-right: 0;
+            flex-basis: 40rem;
+        }
+    }
+}
+
+@media screen and (max-width: 991px) and (min-width: 768px){
+    .contacts-form,
+    .home-calc{
+        &__responsive-row{
+            display: flex;
+            margin: 0 -3rem;
+        }
+        &__column{
+            flex: 1 1 0;
+            padding: 0 3rem;
+        }
+    }
+    .calc-stat{
+        margin-bottom: 0;
+    }
+}
+
+@media screen and (max-width: 767px){
+    .horizontal-item{
+        flex-direction: column;
+    }
+    .mortgage-first-form{
+        position: relative;
+        padding: 3rem;
+        &:after{
+            display: none;
+        }
+        &__wrapper{
+            position: static;
+            width: 100%;
+        }
+    }
+    .mortgage-first-request{
+        margin-bottom: 5rem;
+    }
+    .mortgage-form{
+        &__form{
+            width: 100%;
+        }
+        &__left,
+        &__right{
+            justify-content: stretch;
+        }
+    }
+    .fast-help-start-text{
+        flex-direction: column;
+        .col,.col-auto{
+            flex: 1 1 auto;
+            &:not(:first-child){
+                margin-top: 5rem;
+                text-align: center;
+            }
+        }
+    }
+    .big-form{
+        padding: 5rem;
+        &__row{
+            margin-bottom: 5rem;
+        }
+        &__tel{
+            font-size: 4rem;
+        }
+    }
+    .contacts-form,
+    .home-calc{
+        &__left{
+            padding: 4rem;
+        }
+    }
+    .home-slider{
+        &__list{
+            font-size: 2.5rem;
+        }
+        &__nav{
+            bottom: 8rem;
+        }
+
+        &__text{
+            margin-bottom: 5rem;
+        }
+        &__btns{
+            flex-direction: column;
+            display: flex;
+            align-items: flex-start;
+            padding-right: 12rem;
+            .btn{
+                width: auto;
+                max-width: 100%;
+                margin: 1rem 0 !important;
+            }
+        }
+    }
+    .page__header{
+        position: fixed;
+        left: 0;
+        right: 0;
+        top: 0;
+        z-index: 10;
+        background-color: #fff;
+        box-shadow: 0 0 20px rgba(black,.2);
+      
+    }
+    body{
+        padding-top: 5.8rem;
+    }
+    .main-nav-toggler{
+        display: block;
+    }
+    .main-header__tel{
+        text-align: left;
+        padding: 0 15px;
+    }
+    .main-header{
+    .main-header{
+        &__feedback-block,
+        &__address,
+        &__contacts-info{
+            display: none;
+        }
+    }
+    }
+    .main-nav{
+        display: none;
+    }
+    .calc-radio{
+        &_big{
+            flex-direction: column;
+            height: auto;
+            .calc-radio{
+                &__name{
+                    padding: 2rem;
+                }
+                &__item{
+                    border:none;
+                    
+                    &:not(:first-child){
+                        border-top: 1px solid #000;
+                    }
+                }
+            }
+        }
+    }
+    #preFooterMap{
+        height: 40rem;
+    }
+    .consult-panel{
+        padding: 3rem 0;
+        &__ico{
+            display: none;
+        }
+    }
+    .map{
+        height: auto;
+        &-left{
+            padding: 5rem 0;
+            position: relative;
+            li{
+                margin-bottom: 3rem;
+            }
+            &:before{
+                left: -999rem;
+                right: -999rem;
+            }
+        }
+        &__container{
+            display: none;
+        }
+    }
+    .schedule{
+        margin-left: 0;
+        &-container{
+            flex-direction: column;
+            
+            width: 100%;
+        }
+        &-header{
+            margin-bottom: 1rem;
+            
+        }
+    }
+    .main-footer{
+        text-align: center;
+        &__logo{
+            margin-right: auto;
+            margin-left: auto;
+        }
+        .row{
+            flex-direction: column;
+            .col{
+                flex-basis: auto;
+            }
+        }
+        &__schedule{
+            width: 100%;
+        }
+        &__right{
+            margin-top: 3rem;
+            &_top{
+                height: auto;
+            }
+            
+        }
+    }
+}
+
+@media screen and (max-width: 575px){
+    .ipoteka-chars{
+        display: block;
+        &__item{
+            display: block;
+            margin-bottom: 3rem;
+            span{
+                display: block;
+                padding: 0 !important;
+            }
+        }
+    }
+    .big-form{
+        padding:3rem;
+        &__row{
+            flex-direction: column;
+            &>*{
+                flex: 1 1 auto !important;
+                &:not(:first-child){
+                    margin: 0 !important;
+                    
+                }
+            }
+        }
+        .btn{
+            margin-top: 5rem !important;
+            padding: 2rem;
+        }
+        &__tel{
+            font-size: 3rem;
+        }
+    }
+    .h{
+        &-big{
+            font-size: 2.5rem;
+            line-height: 1.3;
+        }
+        &-md{
+            font-size: 2.2rem;
+        }
+        &-pre{
+            font-size: 2rem;
+        }
+    }
+
+    .action-item{
+        height: auto;
+        &__top{
+            flex-direction: column-reverse;
+            padding-right: 0;
+            align-items: flex-start;
+            margin-bottom: 3rem;
+            &-right{
+                position: static;
+                margin-bottom: 3rem;
+            }
+        }
+    }
+      .news-item{
+        &__image{
+            
+            flex-basis:25rem;
+        }
+    }
+    .calc-stat{
+        white-space: normal;
+        &__row{
+            margin-right: 0;
+            flex-direction: column;
+            span{
+                margin: 0 !important;
+            }
+        }
+    }
+    .reviews-slider{
+        margin-left: 2rem;
+        margin-right: 2rem;
+    }
+    .consult-panel{
+        &__text{
+            margin-bottom: 2rem;
+        }
+        &__row{
+            flex-direction: column;
+        }
+    }
+    .achives-table{
+        &__item{
+            max-width: 100%;
+            flex-basis: 100%;
+        }
+    }
+    .home-slider{
+
+         &__text{
+            max-width: 100%;
+        }
+    }
+    .home-slider__item{
+        position: relative;
+        &:after{
+            content: '';
+            background: #0075ca;
+            background: linear-gradient(to top, #0075ca 0%, #080624 100%);
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            opacity: 0.8;
+        }
+    }
+}

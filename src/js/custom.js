@@ -40,6 +40,12 @@ $(function(){
       loop: true,
       pagination: {
         el: '#partnersSliderPagination'
+      },
+      breakpoints: {
+        575: {
+          slidesPerView: 2,
+          spaceBetween: 20
+        }
       }
     });
   });
@@ -56,6 +62,12 @@ $(function(){
       navigation: {
         nextEl: '[role="next"]',
         prevEl: '[role="prev"]'
+      },
+      breakpoints: {
+        575: {
+          slidesPerView: 1,
+          spaceBetween: 20
+        }
       }
     });
   });
@@ -82,7 +94,17 @@ $(function(){
     var swiper = new Swiper($(this), {
       slidesPerView: 3,
       spaceBetween: 30,
-      loop: true
+      loop: true,
+      breakpoints: {
+        992: {
+          slidesPerView: 2,
+          spaceBetween: 20
+        },
+        575: {
+          slidesPerView: 1,
+          spaceBetween: 20
+        }
+      }
     });
   });
 
@@ -151,3 +173,91 @@ $(function(){
     });
   }
 });
+
+/*-- END: mobile nav --*/
+
+
+/*-- START: mobile nav --*/
+var MOBILE_NAV = (function () {
+  var mobileNavClass = 'mobile-nav';
+  
+  var menus = [
+    '.main-nav:not(.main-nav_prefooter)'
+  ];
+  var additionalBlocks = [
+    '.main-header__address',
+    '.main-header__tel',
+    '.main-header__contacts-info'
+  ];
+  var cnt = $('<div/>');
+
+  for (var j = 0; j < additionalBlocks.length; j++) {
+    if ($(additionalBlocks[j]).length) {
+      var section = $('<div/>').addClass(mobileNavClass + '__section ' + mobileNavClass + '__section_add' + j);
+      section.append($(additionalBlocks[j]).clone());
+      cnt.append(section);
+    }
+  }
+
+  for (var i = 0; i < menus.length; i++) {
+    if ($(menus[i]).length) {
+      var section = $('<div/>').addClass(mobileNavClass + '__section ' + mobileNavClass + '__section_' + i);
+      section.append(getItems(menus[i]));
+      cnt.append(section);
+    }
+  }
+
+
+  cnt.addClass(mobileNavClass);
+
+  $('body').append(cnt);
+
+  $('.header-mobile-wrap').click(function () {
+    $('.' + mobileNavClass).toggleClass('active');
+    $(this).toggleClass('active');
+  });
+
+
+  function getItems(selector) {
+    var clone = $(selector).clone();
+    return clearClasses(clone);
+  }
+
+  function clearClasses(element) {
+    var depth = 0;
+    $(element).removeClass().addClass(mobileNavClass + '__list');
+    clear($(element).children());
+
+    function clear(childrens) {
+      depth++;
+      $(childrens).removeClass();
+      $(childrens).each(function () {
+        var $this = $(this);
+        if ($this.is(':empty')) $(this).remove();
+        if ($this.is('li')) $(this).addClass(mobileNavClass + '__item');
+        if ($this.is('a')) $(this).addClass(mobileNavClass + '__link');
+        if ($this.is('ul') && depth > 0) {
+          var dropdownBtn = $('<button/>').addClass(mobileNavClass + '__dropdown-toggler');
+          var parentLi = $(this).closest('li');
+          dropdownBtn.click(function () {
+            $this.toggleClass('active');
+          });
+          parentLi.append(dropdownBtn);
+
+          $(this).addClass(mobileNavClass + '__dropdown');
+          $(parentLi).addClass(mobileNavClass + '__parent');
+        };
+      });
+      if ($(childrens).children().length) clear($(childrens).children());
+    }
+    return element;
+  }
+
+  $('.mobile-nav-btn').click(function(){
+    console.log(1);
+    $('.mobile-nav').toggleClass('active');
+    $(this).toggleClass('active');
+  });
+}());
+
+/*-- END: mobile nav --*/
