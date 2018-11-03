@@ -639,6 +639,7 @@ body{
         font-weight: normal;
         font-size: 2.6rem;
         line-height: 1;
+        white-space: nowrap;
     }
 }
 /*-------------------------------------------------*/
@@ -1931,6 +1932,123 @@ body{
 	}
 }
 /*-- END: mobile nav --*/
+
+.modal-form .loading,
+.modal-form .success{
+  display: none;
+}
+
+.modal-form.sending .loading{
+  display: block;
+}
+.modal-form.sent form{
+  display: none;
+}
+.modal-form.sent .success{
+  display: block;
+}
+
+.modal-form {
+  font-size: 16px;
+  font-family: arial;
+  background-color: #fff;
+  padding: 20px;
+  width: 300px;
+  max-width: 100%;
+  animation: modalFade 1s;
+}
+
+.modal-form__header {
+  text-transform: uppercase;
+  font-size: 1.2em;
+}
+
+.modal-form__header:after {
+  content: '';
+  display: block;
+  margin: 13px 0 5px;
+  height: 2px;
+  background-color: #2076B6;
+  width: 50px;
+}
+
+.modal-form .success{
+  background-image: url('http://www.freeiconspng.com/uploads/success-icon-10.png');
+  background-position: top center;
+  background-repeat: no-repeat;
+  background-size: 100px;
+  padding-top: 120px;
+  text-align: center;
+}
+
+.modal-form__footer {
+  text-align: center;
+}
+
+.modal-form__footer p {
+  margin: 10px 0;
+  font-size: .8em;
+  color: gray;
+  line-height: 1.5em;
+  font-size: 11px;
+}
+
+.modal-form input, .modal-form textarea {
+  outline: none;
+  font-family: Arial;
+  margin-top: 20px;
+  height: 40px;
+  border: 1px solid #D3D3D3;
+  background-color: #F4F4F4;
+  border-radius: 4px;
+  width: 100%;
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -o-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  padding-left: 20px;
+  transition: border-color .3s;
+}
+.modal-form textarea{
+  height: 100px;
+  padding: 20px;
+}
+
+.modal-form input:focus, .modal-form textarea:focus {
+  border: 1px solid #2076B6;
+}
+
+.modal-form input[type="submit"] {
+  
+  width: auto;
+  padding: 0 20px;
+  border: none;
+  background-color: #2177B7;
+  color: white;
+  background: linear-gradient(#2177B7, #134D7B);
+  margin-top: 10px;
+  cursor: pointer;
+}
+
+.modal-form input[type="submit"]:hover {
+  background: linear-gradient(#3192da, #1a69a7);
+}
+
+.modal-form input[type="submit"]:active {
+  background: linear-gradient(#1a69a7, #3192da);
+}
+
+@keyframes modalFade{
+  from{
+    opacity: 0;
+    transform: translate(0,-30px);
+  }
+  to{
+    opacity: 1;
+    transform: translate(0,0px);
+  }
+}
 /*-------------------------------------------------*/
 /*  ... */
 /*-------------------------------------------------*/
@@ -2395,3 +2513,4 @@ body{
         }
     }
 }
+
