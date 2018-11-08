@@ -1,7 +1,40 @@
 $(function(){
   $('.fancybox').fancybox();
   $('input[type="tel"], input[name="tel"]').mask('+7(999)999-99-99');
+  $('.calc-btn').click(function(){
+    $('body, html').animate({
+      scrollTop: $('.home-calc-wrap').offset().top - 15
+    },1000);
+    return false;
+  });
 
+  function bodyTopPadding(){
+    var pt = $('.main-header').outerHeight();
+    $('body').css('padding-top', pt);
+  }
+  function reviewsPaginationWidth(){
+    var slideWidth = $('.reviews-slider .swiper-slide-active .reviews-slider__text').innerWidth();
+    $('.reviews-slider-nav').width(slideWidth);
+  }
+  reviewsPaginationWidth();
+  bodyTopPadding();
+  
+  $(window).on({
+    'load': function(){
+      bodyTopPadding();
+      equalHeight('.reviews-slider', '.reviews-slider__text');
+      reviewsPaginationWidth();
+    },
+    'resize': function(){
+      if(timeout) clearTimeout(timeout);
+      var timeout = setTimeout(function(){
+        bodyTopPadding();
+        equalHeight('.reviews-slider', '.reviews-slider__text');
+        reviewsPaginationWidth();
+      },1000);
+      
+    }
+  })
 
   $('.js-slider-container').each(function(){
     var moneyFormat = wNumb({
@@ -49,7 +82,6 @@ $(function(){
       }
     });
   });
-
   $('.reviews-slider').each(function(){
     var swiper = new Swiper($(this), {
       slidesPerView: 3,
@@ -180,21 +212,30 @@ $(function(){
 /*-- START: mobile nav --*/
 var MOBILE_NAV = (function () {
   var mobileNavClass = 'mobile-nav';
-  
+
+  var additionalBlocks1 = [
+    '.main-logo'
+  ];
   var menus = [
     '.main-nav:not(.main-nav_prefooter)'
   ];
-  var additionalBlocks = [
-    '.main-header__address',
+  var additionalBlocks2 = [
     '.main-header__tel',
-    '.main-header__contacts-info'
+    '.main-header__email',
+    $('.main-header__address > p').eq(0),
+    '.social'
   ];
+  var additionalBlocks2New = $('<div class="mobile-nav__bottom"></div>')
+  $.each(additionalBlocks2, function(i,e){
+    additionalBlocks2New.append($(e).clone());
+  });
+
   var cnt = $('<div/>');
 
-  for (var j = 0; j < additionalBlocks.length; j++) {
-    if ($(additionalBlocks[j]).length) {
-      var section = $('<div/>').addClass(mobileNavClass + '__section ' + mobileNavClass + '__section_add' + j);
-      section.append($(additionalBlocks[j]).clone());
+  for (var j = 0; j < additionalBlocks1.length; j++) {
+    if ($(additionalBlocks1[j]).length) {
+      var section = $('<div/>').addClass(mobileNavClass + '__section ' + mobileNavClass + '__section1_add' + j);
+      section.append($(additionalBlocks1[j]).clone());
       cnt.append(section);
     }
   }
@@ -206,6 +247,8 @@ var MOBILE_NAV = (function () {
       cnt.append(section);
     }
   }
+
+  cnt.append(additionalBlocks2New);
 
 
   cnt.addClass(mobileNavClass);
@@ -261,3 +304,20 @@ var MOBILE_NAV = (function () {
 }());
 
 /*-- END: mobile nav --*/
+
+function equalHeight(wrap, element) {
+  $(wrap).each(function () {
+    var maxHeight = [],
+      className = element;
+    $(this).find(className).each(function () {
+      $(this).height('auto');
+    });
+    $(this).find(className).each(function () {
+      maxHeight.push($(this).height());
+    });
+    maxHeight = Math.max.apply(null, maxHeight);
+    $(this).find(className).each(function () {
+      $(this).height(maxHeight);
+    });
+  });
+}

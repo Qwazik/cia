@@ -6,15 +6,34 @@ block main
       .container
         .h.h-big.inner-page__header Акции
         .action-list
-          -for(var i=1; i<=4; i++)
-            .action-list__item.action-item(style="background: url(img/action"+i+".jpg)")
-              .action-item__top
-                .action-item__top-left
-                  .action-item__name бесплатно 
-                  .action-item__desc  Одобрение и сопровождение сделки по новостройке бесплатно 
-                .action-item__top-right
-                  .action-item__discount 
-                    | <span>-50</span> тыс
-              a(href="#").btn.btn-white.btn-sm.action-item__btn Подробнее
+          .action-list__item.action-item(style="background-image: url(img/action1.jpg)")
+            .action-item__top
+              .action-item__top-left
+                .action-item__name бесплатно 
+                .action-item__desc 
+                  p Одобрение и сопровождение сделки по новостройке бесплатно. 
+                  p Одобрение ипотеки любой сложности, подбор новостройки и юридическое <br> сопровождение сделки для покупателя осуществляется бесплатно.  
+            a(href="#").btn.btn-white.btn-sm.action-item__btn Подробнее
+          .action-list__item.action-item(style="background-image: url(img/action2.jpg)")
+            .action-item__top
+              .action-item__top-left
+                .action-item__name Скидки до 50 000 рублей.  
+                .action-item__desc 
+                  p Дополнительная скидка клиентам при покупке новостройки при <br> наличии постоянно регистрации в любом регионе РФ за исключением <br> Санкт-Петербурга, Ленинградской области. 
+            a(href="#").btn.btn-white.btn-sm.action-item__btn Подробнее
+          .action-list__item.action-item(style="background-image: url(img/action3.jpg)")
+            .action-item__top
+              .action-item__top-left
+                .action-item__name Трейд-Ин  
+                .action-item__desc 
+                  p У нас вы можете оптимально провести сделку по продаже своей старой <br> квартиры и одновременной покупки нового жилья без риска. 
+            a(href="#").btn.btn-white.btn-sm.action-item__btn Подробнее
+          .action-list__item.action-item(style="background-image: url(img/action4.jpg)")
+            .action-item__top
+              .action-item__top-left
+                .action-item__name Семейная ипотека под 6% 
+                .action-item__desc 
+                  p Акция распространяется на семьи, у которых в 2018 году родился <br> второй и последующие дети.
+            a(href="#").btn.btn-white.btn-sm.action-item__btn Подробнее
 
 

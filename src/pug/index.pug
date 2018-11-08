@@ -144,7 +144,7 @@ block main
                 .calc-row__header
                   span
                     | СТОИМОСТЬ, 
-                    i.icm.icm-rouble
+                    span.rouble А
                   span.calc-row__val(role="val") 855 405
                 .calc-row__body.js-slider-wrapper
                   .js-slider
@@ -155,7 +155,7 @@ block main
                     span.calc-radio.calc-radio_inline
                       label.calc-radio__item
                         input(type="radio" name="currency")
-                        .calc-radio__name: i.icm.icm-rouble
+                        .calc-radio__name: span.rouble А
                       label.calc-radio__item
                         input(type="radio" name="currency")
                         .calc-radio__name %
@@ -182,15 +182,15 @@ block main
             .home-calc__column
               .calc-sum.mb-7
                 | 60 526 
-                i.icm.icm-rouble 
+                span.rouble ф 
                 span.calc-sum__by / Мес
               .calc-stat
                 .calc-stat__row
                   span Общая сумма выплат
-                  span 75 581 006 <i class="icm icm-rouble"></i>
+                  span 75 581 006 <span class="rouble">ф</span>
                 .calc-stat__row
                   span Размер переплаты
-                  span 45 581 006 <i class="icm icm-rouble"></i>
+                  span 45 581 006 <span class="rouble">ф</span>
             .home-calc__column
               input.input(type="text" required placeholder="Имя" data-parsley-pattern="[а-яА-Я a-zA-Z]+").input-white
               input.input(type="tel" required placeholder="Телефон").input-white.mt-5
@@ -230,7 +230,9 @@ block main
             .reviews-slider__author-photo(style="background-image: url('img/review-photo1.jpg')" alt="")
             .reviews-slider__author-name Вова Дикусар
             .reviews-slider__author-sep
-          .reviews-slider__text Огромное спасибо за профессиональную помощь в приобретении недвижимости в ипотеку. Это очень серьезный шаг в жизни каждой семьи. ЦИА помогли нам в нашей непростой ситуации. Нам одобрил ипотеку один из самых надежных банков - Сбербанк. Условия кредитования были подобраны именно так, как нам удобно и комфортно. 
+          .reviews-slider__text 
+            | Огромное спасибо за профессиональную помощь в приобретении недвижимости в ипотеку. Это очень серьезный шаг в жизни каждой семьи. ЦИА помогли нам в нашей непростой ситуации. Нам одобрил ипотеку один из самых надежных банков - Сбербанк. Условия кредитования были подобраны именно так, как нам удобно и комфортно. 
+          a(href="#").link.reviews-slider__more Подробнее
         .swiper-slide: .reviews-slider__slide
           .reviews-slider__author
             .reviews-slider__author-photo(style="background-image: url('img/review-photo2.jpg')" alt="")

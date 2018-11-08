@@ -11,7 +11,7 @@ html {
     font-size: 62.5%;
     margin: 0;
     padding: 0;
-    @media screen and (max-width: 1249px){
+    @media screen and (max-width: 1279px){
         font-size: 50%;
     }
 
@@ -24,12 +24,25 @@ body{
     margin: 0;
     padding: 0;
     min-width: 320px;
+    padding-top: 8.8rem;
 }
 
 *{
     box-sizing: border-box;
 }
-
+.calc-btn{
+    background-color: #0F5FA9;
+    color: white;
+    line-height: 1;
+    width: 5rem;
+    height: 5rem;
+    display: flex;
+    border-radius: .5rem;
+    align-items: center;
+    justify-content: center;
+    font-size: 2.5rem;
+    cursor: pointer;
+}
 .btn{
     border:none;
 
@@ -46,6 +59,7 @@ body{
     border-radius: 999px;
     white-space: nowrap;
     transition: all .2s;
+    letter-spacing: em(1.4,16);
     &-primary{
         background-color: $primary-color;
         box-shadow: 0 0 em(29,14) rgba(15, 27, 65, 0.23);
@@ -83,6 +97,13 @@ body{
 /*-------------------------------------------------*/
 /*  START: utilities */
 /*-------------------------------------------------*/
+.rouble{
+    font-family: 'PTRoubleSans';
+    font-weight: 400;
+}
+.img-responsive{
+    max-width: 100%;
+}
 .nowrap{
     white-space: nowrap;
 }
@@ -117,6 +138,10 @@ body{
 
 .link{
     color: #0075ca;
+    text-decoration: none;
+    border-bottom: 1px solid #0075ca;
+    align-self: flex-start;
+    line-height: normal;
 }
 .off-link{
     color: inherit;
@@ -151,7 +176,7 @@ body{
         font-size: 3rem;
     }
     &-big{
-        font-size: 4.4rem;
+        font-size: 4.5rem;
     }
     &-md{
         font-size: 3.5rem;
@@ -191,16 +216,31 @@ body{
 }
 .main-header{
     padding: 0.9rem 0 1.6rem;
+        padding: 0.9rem 0 1.6rem;
+    position: fixex;
+    position: fixed;
+    background: white;
+    left: 0;
+    right: 0;
+    top: 0;
+
+    z-index: 20;
+    box-shadow: 0 0 30px rgba(0,0,0,0.1);
+
     &__row{
         align-items: center;
         justify-content: space-between;
     }
     &__center{
         justify-content: space-around;
+        @media screen and (min-width: 1280px){
+                padding: 0 4%; 
+            }
     }
     &__feedback{
-        font-size: 1.3rem;
+        font-size: 1.1rem;
         padding: .9rem 1.7rem;
+        letter-spacing: em(0.55, 16);
     }
     &__scheme,&__email{
         color: inherit;
@@ -238,7 +278,8 @@ body{
         text-transform: uppercase;
         padding: 2.7rem 0;
         display: block;
-        line-height: 1;
+        line-height: 1;font-weight: bold;
+        letter-spacing: em(1.6,16);
         &:hover{
             text-decoration: underline;
         }
@@ -298,7 +339,7 @@ body{
         position: absolute;
         bottom: 6.6rem;
         right: calc((100vw - 1200px) / 2);
-        @media screen and (max-width: 1249px){
+        @media screen and (max-width: 1279px){
          right: calc((100vw - 960px) / 2);   
         }
         @media screen and (max-width: 991px){
@@ -409,8 +450,9 @@ body{
     display: block;
     text-decoration: none;
     color: inherit;
+    transition: box-shadow .3s;
     &:hover{
-        box-shadow: 0 0 3.2rem rgba(15, 27, 65, 0.14);
+        box-shadow: 0 0 3.2rem rgba(15, 27, 65, 0.50);
     }
     &__image{
         height: 24.2rem;
@@ -525,6 +567,10 @@ body{
         background: #fff;
         flex: 1 1 auto;
         padding: 6rem;
+        .h{
+            font-weight: 800;
+            
+        }
     }
     &__right{
         background-image: linear-gradient(to top, #0075ca 0%, #080624 100%);
@@ -534,7 +580,7 @@ body{
         justify-content: center;
         padding: 4rem;
         font-size: 1.8rem;
-        flex: 1 1 0;
+        flex: 2 1 0;
     }
     &__row{
             margin-top: 5rem;
@@ -765,6 +811,11 @@ body{
 .reviews-slider{
     margin: 0 -20rem;
     margin-bottom: 16rem;
+    &__more{
+        color: inherit;
+        border-color: white;
+        font-size: 1.8rem;
+    }
     &-nav{
         margin-left: auto;
         margin-right: auto;
@@ -775,7 +826,7 @@ body{
         z-index: 11;
         bottom: 11.5rem;
         display: inline-flex;
-        justify-content: center;
+        justify-content: space-between;
         align-items: center;
         &__btn{
             font-size: 3.4rem;
@@ -831,6 +882,7 @@ body{
         font-weight: 300;
         font-size: 2rem;
         line-height: 1.6;
+        margin-bottom: 3rem;
     }
 }
 .home-reviews{
@@ -927,11 +979,17 @@ body{
     }
     &__text{
         padding: 0rem 3rem;
+        font-size: 2rem;
     }
     &__row{
         align-items: center;
         justify-content: space-between;
         display: flex;
+    }
+    &__btn{
+        font-size: 1.6rem;
+        padding-left: 6.2rem;
+        padding-right: 6.2rem;
     }
 }
 
@@ -946,10 +1004,12 @@ body{
     background-color: #f1f1f1;
     padding: 9.5rem 0;
     &__pre-header{
-        margin-bottom: 1rem;
+        margin-bottom: .7rem;
+        line-height: 1;
     }
     &__header{
-        margin-bottom: 7.8rem;
+        margin-bottom: 6.8rem;
+        line-height: 1;
     }
     &__row{
         align-items: center;
@@ -960,6 +1020,7 @@ body{
         align-items: center;
         justify-content: center;
         height: 15.4rem;
+        border-radius: 1rem;
         img{
             max-width: 100%;
         }
@@ -1035,6 +1096,7 @@ body{
         &__inner{
             position: relative;
             z-index: 1;
+            font-size: 2rem;
         }
         &:before{
             content: '';
@@ -1050,14 +1112,20 @@ body{
             list-style-type:none;
             padding: 0;
             margin: 0;
+            margin-bottom: 6rem;
         }
         li{
-            margin-bottom: 6rem;
+            margin-bottom: 3.55rem;
+            &:last-child{
+                margin-top: 5.5rem;
+            }
         }
         b{
             display: block;
-            margin-bottom: 1rem;
+            margin-bottom: .45rem;
             text-transform: uppercase;
+            font-size: 1.4rem;
+            letter-spacing: em(0.84,16);
         }
         a{
             color: inherit;
@@ -1169,7 +1237,7 @@ body{
         position: absolute;
         top: 0;
         height: 100%;
-        width: 15rem;
+        width: 5rem;
         z-index: 2;
         cursor: pointer;
         &[aria-disabled="true"]{
@@ -1194,6 +1262,10 @@ body{
         display: inline-block !important;
         width: auto;
         cursor: pointer;
+        a{
+            color: inherit;
+            text-decoration: none;
+        }
         &.active{
             border-color: #ffcc00;
         }
@@ -1407,7 +1479,7 @@ body{
         position: relative;
         color: white;
         padding: 6rem;
-
+        background-size: cover;
         &>*{
             position: relative;
             z-index: 1;
@@ -1450,9 +1522,11 @@ body{
             letter-spacing: 0.156rem;
             font-weight: 800;
             margin-bottom: 1.3rem;
+            color: #FFC000;
         }
         &__desc{
             font-size: 1.8rem;
+            line-height: em(28, 18);
         }
         &__btn{
             font-size: 1.3rem;
@@ -1553,13 +1627,13 @@ body{
 
 .mortgage-first{
     background-color: #d2eaff;
-    padding: 9rem 0 6.2rem;
+    padding: 7.6rem 0 6.2rem;
     margin-bottom: 5.7rem;
     &-header{
         line-height: 1.2;
         font-weight: 700;
         font-size: 5rem;
-        margin-bottom: 2.5rem;
+        margin-bottom: 2.3rem;
     }
     &-desc{
         margin-bottom: 3.5rem;
@@ -1596,9 +1670,11 @@ body{
         border-radius: 2rem;
         background-color: #ffcc00;
         background-image: linear-gradient(to top, #0075ca 0%, #080624 100%);
-        padding: 8rem 10rem 5rem;
+        padding: 7.5rem 10.5rem 5rem;
         color: white;
         width: 100%;
+        right: 0;
+        top: 1.2rem;
         &:after{
             content: '';
             right: 100%;
@@ -1614,6 +1690,7 @@ body{
             position: relative;
             width: 48.5rem;
             min-height: 40rem;
+            margin-left: auto;
             
         }
         &__row{
@@ -1630,11 +1707,15 @@ body{
                 line-height: 1;
             }
             &:not(:first-child){
-                margin-top: 3rem;
+                margin-top: 2.4rem;
             }
         }
         &__footer{
             margin-top: 6rem;
+            .btn{
+                font-size: 1.6rem;
+                padding: 2.5rem 5.2rem;
+            }
         }
     }
 }
@@ -1917,11 +1998,10 @@ body{
 	}
 	&__section{
 		padding: 1rem 0;
-		&:not(:first-child){
-			border-top: 1px solid rgba(black ,.3);
-		}
-		&_1{
-			text-transform: uppercase;
+	
+		&1_add0{
+            text-transform: uppercase;
+            padding: 2rem 3rem 1rem;
 		}
 	}
 	&__link{
@@ -1929,7 +2009,14 @@ body{
 		padding: 1rem 3rem;
 		text-decoration: none;
 		color: inherit;
-	}
+    }
+    &__bottom{
+        padding: 1rem 0;
+        border-top: 1px solid #B2B2B2;
+        >*{
+            padding: 1rem 3rem !important;
+        }
+    }
 }
 /*-- END: mobile nav --*/
 
@@ -2053,7 +2140,11 @@ body{
 /*  ... */
 /*-------------------------------------------------*/
 
-@media screen and (max-width: 992px){
+.fast-help-start-text{
+    align-items: center;
+}
+
+@media screen and (max-width: 991px){
     .h{
         br{
             display: none;
@@ -2160,6 +2251,7 @@ body{
     .main-header{
         &__center{
             flex-direction: column-reverse;
+            
             .col-auto:last-child{
                 margin-bottom: 1rem;
             }
@@ -2213,6 +2305,10 @@ body{
 }
 
 @media screen and (max-width: 767px){
+    .btn{
+        padding-left: 4rem;
+        padding-right: 4rem;
+    }
     .horizontal-item{
         flex-direction: column;
     }
@@ -2241,6 +2337,7 @@ body{
     }
     .fast-help-start-text{
         flex-direction: column;
+        
         .col,.col-auto{
             flex: 1 1 auto;
             &:not(:first-child){
@@ -2442,6 +2539,12 @@ body{
         }
         &-pre{
             font-size: 2rem;
+        }
+    }
+
+    .fz{
+        &-lg{
+            font-size: 2.2rem;
         }
     }
 
