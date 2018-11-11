@@ -31,17 +31,25 @@ body{
     box-sizing: border-box;
 }
 .calc-btn{
-    background-color: #0F5FA9;
-    color: white;
+    transform: translate(1rem,0);
+    background-color: #FFC000;
+    color: black;
     line-height: 1;
-    width: 5rem;
-    height: 5rem;
+    padding: 1.3rem;
+    padding-right: 2.3rem;
     display: flex;
-    border-radius: .5rem;
+    border-radius: .5rem 0 0 .5rem;
     align-items: center;
     justify-content: center;
     font-size: 2.5rem;
     cursor: pointer;
+    position: fixed;
+    right: 0;
+    top: 15%;
+    transition: all .3s;
+    &:hover{
+        transform: translate(0,0);
+    }
 }
 .btn{
     border:none;
@@ -458,6 +466,14 @@ body{
         height: 24.2rem;
         background-size: cover;
         background-position: left bottom;
+        transition: all .3s;
+        transform-origin: left center;
+        &:hover{
+            transform: scale(1.1);
+        }
+        &-wrap{
+            overflow: hidden;
+        }
     }
     &__name{
         text-align: center;
@@ -976,6 +992,7 @@ body{
         justify-content: center;
         border-radius: 50%;
         margin: -1.6rem 0;
+        flex-shrink: 0;
     }
     &__text{
         padding: 0rem 3rem;

@@ -1,9 +1,9 @@
 @font-face {
   font-family: 'icomoon';
   src:
-    url('fonts/icomoon.ttf?89r6cg') format('truetype'),
-    url('fonts/icomoon.woff?89r6cg') format('woff'),
-    url('fonts/icomoon.svg?89r6cg#icomoon') format('svg');
+    url('fonts/icomoon.ttf?bxe9p4') format('truetype'),
+    url('fonts/icomoon.woff?bxe9p4') format('woff'),
+    url('fonts/icomoon.svg?bxe9p4#icomoon') format('svg');
   font-weight: normal;
   font-style: normal;
 }
@@ -23,6 +23,9 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+.icm-calculator1:before {
+  content: "\e907";
+}
 .icm-telegram:before {
   content: "\e905";
 }
@@ -49,7 +52,4 @@
 }
 .icm-instagram:before {
   content: "\ea92";
-}
-.icm-calculator:before {
-  content: "\e940";
 }

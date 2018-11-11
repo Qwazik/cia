@@ -1,0 +1,122 @@
+extends _template
+
+block main
+	section
+		.container
+			h2.h.h-big.ta-center Рассчитайте вашу ипотеку
+			form(action="#" data-parsley-validate).home-calc
+				.home-calc__left
+					.home-calc__row.mt-0: .calc-radio.calc-radio_big
+						label.calc-radio__item
+							input(type="radio" name="pays")
+							.calc-radio__name Аннуитетные ПЛАТЕЖИ
+						label.calc-radio__item
+							input(type="radio" name="pays")
+							.calc-radio__name Дифферинцированные ПЛАТЕЖИ
+					.home-calc__responsive-row
+						.home-calc__column
+							.home-calc__row.js-slider-container(data-start="0" data-min="0" data-max="1000000")
+								.calc-row__header
+									span
+										| СТОИМОСТЬ, 
+										span.rouble А
+									span.calc-row__val(role="val") 855 405
+								.calc-row__body.js-slider-wrapper
+									.js-slider
+							.home-calc__row.js-slider-container(data-start="0" data-min="0" data-max="1000000")
+								.calc-row__header
+									span
+										| Первоначальный взнос, &nbsp;&nbsp;
+										span.calc-radio.calc-radio_inline
+											label.calc-radio__item
+												input(type="radio" name="currency")
+												.calc-radio__name: span.rouble А
+											label.calc-radio__item
+												input(type="radio" name="currency")
+												.calc-radio__name %
+									span.calc-row__val(role="val") 855 405
+								.calc-row__body.js-slider-wrapper
+									.js-slider
+						.home-calc__column
+							.home-calc__row.js-slider-container(data-start="0" data-min="0" data-max="1000000")
+								.calc-row__header
+									span
+										| Процентная ставка, %
+									span.calc-row__val(role="val") 855 405
+								.calc-row__body.js-slider-wrapper
+									.js-slider
+							.home-calc__row.js-slider-container(data-start="0" data-min="0" data-max="1000000")
+								.calc-row__header
+									span
+										| Срок, <small>лет</small>
+									span.calc-row__val(role="val") 855 405
+								.calc-row__body.js-slider-wrapper
+									.js-slider
+				.home-calc__right
+					.home-calc__responsive-row
+						.home-calc__column
+							.calc-sum.mb-7
+								| 60 526 
+								span.rouble ф 
+								span.calc-sum__by / Мес
+							.calc-stat
+								.calc-stat__row
+									span Общая сумма выплат
+									span 75 581 006 <span class="rouble">ф</span>
+								.calc-stat__row
+									span Размер переплаты
+									span 45 581 006 <span class="rouble">ф</span>
+						.home-calc__column
+							input.input(type="text" required placeholder="Имя" data-parsley-pattern="[а-яА-Я a-zA-Z]+").input-white
+							input.input(type="tel" required placeholder="Телефон").input-white.mt-5
+							button.btn.btn-primary.mt-6 Оставить заявку
+	section.mortgage-partners
+		.h.h-big.ta-center.mb-8 ОФИЦИАЛЬНЫЕ ПАРТНЕРЫ
+		.container-fluid: .swiper-container
+			.swiper-wrapper
+				.swiper-slide: img(src="img/mp1.png", alt="")
+				.swiper-slide: img(src="img/mp2.png", alt="")
+				.swiper-slide: img(src="img/mp3.png", alt="")
+				.swiper-slide: img(src="img/mp4.png", alt="")
+				.swiper-slide: img(src="img/mp5.png", alt="")
+				.swiper-slide: img(src="img/mp6.png", alt="")
+				.swiper-slide: img(src="img/mp6.png", alt="")
+				.swiper-slide: img(src="img/mp6.png", alt="")
+				.swiper-slide: img(src="img/mp6.png", alt="")
+				.swiper-slide: img(src="img/mp6.png", alt="")
+	section.consult-panel
+		.container
+			.consult-panel__row
+				.consult-panel__ico
+					img(src="img/consult.svg", alt="")
+				.consult-panel__text Обратитесь к специалисту за советом и помощью в ипотеке  
+				a(href="#").consult-panel__btn.btn.btn-primary Получить консультацию
+
+	section.home-reviews
+		h2.h.h-big.ta-center.home-reviews__header Отзывы наших клиентов
+		.reviews-slider.swiper-container
+			.reviews-slider__list.swiper-wrapper
+				.swiper-slide: .reviews-slider__slide
+					.reviews-slider__author
+						.reviews-slider__author-photo(style="background-image: url('img/review-photo1.jpg')" alt="")
+						.reviews-slider__author-name Вова Дикусар
+						.reviews-slider__author-sep
+					.reviews-slider__text 
+						| Огромное спасибо за профессиональную помощь в приобретении недвижимости в ипотеку. Это очень серьезный шаг в жизни каждой семьи. ЦИА помогли нам в нашей непростой ситуации. Нам одобрил ипотеку один из самых надежных банков - Сбербанк. Условия кредитования были подобраны именно так, как нам удобно и комфортно. 
+					a(href="#").link.reviews-slider__more Подробнее
+				.swiper-slide: .reviews-slider__slide
+					.reviews-slider__author
+						.reviews-slider__author-photo(style="background-image: url('img/review-photo2.jpg')" alt="")
+						.reviews-slider__author-name Вова Дикусар
+						.reviews-slider__author-sep
+					.reviews-slider__text Огромное спасибо за Это очень серьезный шаг в жизни каждой семьи. ЦИА помогли нам в нашей непростой ситуации. Нам одобрил ипотеку один из самых надежных банков - Сбербанк. Условия кредитования были подобраны именно так, как нам удобно и комфортно. 
+				.swiper-slide: .reviews-slider__slide
+					.reviews-slider__author
+						.reviews-slider__author-photo(style="background-image: url('img/review-photo3.jpg')" alt="")
+						.reviews-slider__author-name Вова Дикусар
+						.reviews-slider__author-sep
+					.reviews-slider__text Огромное спасибо за профессиональную помощь в приобретении недвижимости в ипотеку. Это очень серьезный шаг в жизни каждой семьи. ЦИА помогли нам в нашей непростой ситуации. Нам одобрил ипотеку один из самых надежных банков - Сбербанк. Условия кредитования были подобраны именно так, как нам удобно и комфортно. 
+			.reviews-slider-nav
+				button.reviews-slider-nav__btn(role="prev"): i.icm.icm-angle-left
+				.swiper-pagination
+				button.reviews-slider-nav__btn(role="next"): i.icm.icm-angle-right
