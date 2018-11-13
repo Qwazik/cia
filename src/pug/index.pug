@@ -139,68 +139,82 @@ block main
   section.home-calc-wrap
     .container
       h2.h.h-big.ta-center Рассчитайте вашу ипотеку
-      form(action="#" data-parsley-validate).home-calc
+      form(action="#" data-parsley-validate).home-calc.js-calc-init
         .home-calc__left
           .home-calc__row.mt-0: .calc-radio.calc-radio_big
             label.calc-radio__item
-              input(type="radio" name="pays")
+              input(type="radio" name="pays" value="a" checked)
               .calc-radio__name Аннуитетные ПЛАТЕЖИ
             label.calc-radio__item
-              input(type="radio" name="pays")
+              input(type="radio" name="pays" value="d")
               .calc-radio__name Дифферинцированные ПЛАТЕЖИ
           .home-calc__responsive-row
             .home-calc__column
-              .home-calc__row.js-slider-container(data-start="0" data-min="0" data-max="1000000")
+              .home-calc__row.js-slider-container(data-start="1360000" data-min="0" data-max="3000000")
                 .calc-row__header
                   span
                     | СТОИМОСТЬ, 
                     span.rouble А
-                  span.calc-row__val(role="val") 855 405
+                  span.calc-row__val(role="val" aria-type="price") 855 405
                 .calc-row__body.js-slider-wrapper
                   .js-slider
-              .home-calc__row.js-slider-container(data-start="0" data-min="0" data-max="1000000")
+              .home-calc__row.js-slider-container(data-start="0" data-min="0" data-max="1000000" role="firstpaycur" aria-type="r")
                 .calc-row__header
                   span
                     | Первоначальный взнос, &nbsp;&nbsp;
                     span.calc-radio.calc-radio_inline
                       label.calc-radio__item
-                        input(type="radio" name="currency")
+                        input(type="radio" name="first-pay" value="r" checked)
+                        .calc-radio__name.checked: span.rouble А
+                      label.calc-radio__item
+                        input(type="radio" name="first-pay" value="p")
+                        .calc-radio__name %
+                  span.calc-row__val(role="val" aria-type="first-pay") 855 405
+                .calc-row__body.js-slider-wrapper
+                  .js-slider
+              .home-calc__row.js-slider-container(data-start="0" data-min="0" data-max="100" role="firstpaycur" aria-type="p")
+                .calc-row__header
+                  span
+                    | Первоначальный взнос, &nbsp;&nbsp;
+                    span.calc-radio.calc-radio_inline
+                      label.calc-radio__item
+                        input(type="radio" name="first-pay" value="r" checked)
                         .calc-radio__name: span.rouble А
                       label.calc-radio__item
-                        input(type="radio" name="currency")
-                        .calc-radio__name %
-                  span.calc-row__val(role="val") 855 405
+                        input(type="radio" name="first-pay" value="p")
+                        .calc-radio__name.checked %
+                  span.calc-row__val(role="val" aria-type="first-pay-persent") 0
                 .calc-row__body.js-slider-wrapper
                   .js-slider
             .home-calc__column
-              .home-calc__row.js-slider-container(data-start="0" data-min="0" data-max="1000000")
+              .home-calc__row.js-slider-container(data-start="9.3" data-min="0" data-max="30" data-decimal="true")
                 .calc-row__header
                   span
                     | Процентная ставка, %
-                  span.calc-row__val(role="val") 855 405
+                  span.calc-row__val(role="val" aria-type="persent-val") 855 405
                 .calc-row__body.js-slider-wrapper
                   .js-slider
-              .home-calc__row.js-slider-container(data-start="0" data-min="0" data-max="1000000")
+              .home-calc__row.js-slider-container(data-start="25" data-min="1" data-max="25")
                 .calc-row__header
                   span
                     | Срок, <small>лет</small>
-                  span.calc-row__val(role="val") 855 405
+                  span.calc-row__val(role="val" aria-type="time") 855 405
                 .calc-row__body.js-slider-wrapper
                   .js-slider
         .home-calc__right
           .home-calc__responsive-row
             .home-calc__column
               .calc-sum.mb-7
-                | 60 526 
+                span(role="output" aria-type="by-month") 60 526 
                 span.rouble ф 
                 span.calc-sum__by / Мес
               .calc-stat
                 .calc-stat__row
                   span Общая сумма выплат
-                  span 75 581 006 <span class="rouble">ф</span>
+                  span <span role="output" aria-type="amount-pay" class="mr-0">75 581 006</span> <span class="rouble">ф</span>
                 .calc-stat__row
                   span Размер переплаты
-                  span 45 581 006 <span class="rouble">ф</span>
+                  span <span role="output" aria-type="amount-overpay" class="mr-0">45 581 006</span> <span class="rouble">ф</span>
             .home-calc__column
               input.input(type="text" required placeholder="Имя" data-parsley-pattern="[а-яА-Я a-zA-Z]+").input-white
               input.input(type="tel" required placeholder="Телефон").input-white.mt-5

@@ -37,6 +37,7 @@ $(function(){
   })
 
   $('.js-slider-container').each(function(){
+    var calcParent = $(this).closest('.js-calc-init');
     var moneyFormat = wNumb({
       mark: '.',
       thousand: ' ',
@@ -49,6 +50,7 @@ $(function(){
     var max = $(this).data('max');
     var min = $(this).data('min');
     var start = $(this).data('start');
+    var decimal = $(this).data('decimal');
     if(!slider.length) return false;
     var slider = noUiSlider.create(slider[0], {
       start: start,
@@ -60,8 +62,9 @@ $(function(){
     });
 
     slider.on('update', function(values, handle){
-      
-      valSelector.text(moneyFormat.to(+values[handle]));
+      if(decimal) valSelector.text(+values[handle]);
+      else valSelector.text(moneyFormat.to(+values[handle]));
+      CALC.calculate($(calcParent));
     });
 
   });
@@ -297,7 +300,6 @@ var MOBILE_NAV = (function () {
   }
 
   $('.mobile-nav-btn').click(function(){
-    console.log(1);
     $('.mobile-nav').toggleClass('active');
     $(this).toggleClass('active');
   });
@@ -321,3 +323,94 @@ function equalHeight(wrap, element) {
     });
   });
 }
+
+
+/* START: Calc */
+var CALC = (function(){
+  function getValues(calc){
+    return {
+      paysType: $(calc).find('[name="pays"]').filter(':checked').val(),
+      firstPayCur: $(calc).find('[name="first-pay"]').filter(':checked').val(),
+      price: n($(calc).find('[role="val"]').filter('[aria-type="price"]').text()),
+      firstPayRouble: n($(calc).find('[role="val"]').filter('[aria-type="first-pay"]').text()),
+      firstPayPercent: n($(calc).find('[role="val"]').filter('[aria-type="first-pay-persent"]').text()),
+      persentVal: n($(calc).find('[role="val"]').filter('[aria-type="persent-val"]').text()),
+      time: n($(calc).find('[role="val"]').filter('[aria-type="time"]').text())
+    }
+  }
+  function calculate(values, calc){
+    var firstPay = (values.firstPayCur === 'r')?values.firstPayRouble:values.firstPayPercent;
+    var lastPrice = values.price;
+    if (values.firstPayCur === 'r') {
+      lastPrice = values.price - values.firstPayRouble;
+    } else if (values.firstPayCur === 'p') {
+      lastPrice = values.price - (values.price * (values.firstPayPercent / 100));
+    } else {
+      lastPrice = values.price;
+    }
+    if(values.paysType === 'a'){
+      var result = lastPrice * values.persentVal / 100 / 12 / (1 - Math.pow((1 + values.persentVal / 100 / 12), -values.time*12));
+      toHtml(s(result), calc);
+    }
+
+    if(values.paysType === 'd'){
+      var firstPay = lastPrice/values.time/12+lastPrice*values.persentVal/100/12;
+      var lastPay = lastPrice / values.time / 12 + lastPrice / values.time / 12 * values.persentVal /100 / 12;
+      var result = s(firstPay) + '... <br>' + s(lastPay);
+      toHtml(result, calc);
+    }
+  }
+  function firstPayCurrencyToggle(calc){
+    calc.find('[role="firstpaycur"]').hide();
+    
+    if(getValues(calc).firstPayCur === 'r'){
+      calc.find('[role="firstpaycur"]').filter('[aria-type="r"]').show();
+      calc.find('[name="first-pay"]').filter('[value="r"]').prop('checked', true);
+    }else{
+      calc.find('[role="firstpaycur"]').filter('[aria-type="p"]').show();
+      calc.find('[name="first-pay"]').filter('[value="p"]').prop('checked', true);
+    }
+  }
+  function startEvents(calc){
+    $(calc).find('input[type="radio"]').change(function(){
+      calculate(getValues(calc), calc);
+      firstPayCurrencyToggle($(calc));
+    });
+  }
+  function n(str){
+    return Number(str.replace(/ /g,''));
+  }
+  function s(number){
+    return Number(number.toFixed(2)).toLocaleString()+' ';
+  }
+  function toHtml(result, calc){
+    $(calc).find('[role="output"]').filter("[aria-type='by-month']").html(result);
+  }
+  return {
+    calculate: function(calc){
+      calculate(getValues(calc), calc);
+    },
+    init: function(){
+      $('.js-calc-init').each(function(){
+        calculate(getValues($(this)), this);
+        startEvents($(this), this);
+        firstPayCurrencyToggle($(this));
+      });
+    }
+  }
+}());
+
+$(document).ready(function(){
+  if($('.js-calc-init').length) CALC.init();
+});
+/* END: Calc */
+
+$(function(){
+  $('.service-ipo-tabs__nav a').click(function(){
+    $(this).addClass('active');
+    $(this).siblings().removeClass('active');
+    $('.service-ipo-tabs__item').removeClass('active');
+    $('.service-ipo-tabs__item').eq($(this).index()).addClass('active');
+    return false;
+  })
+});

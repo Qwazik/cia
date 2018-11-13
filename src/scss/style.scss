@@ -35,17 +35,18 @@ body{
     background-color: #FFC000;
     color: black;
     line-height: 1;
-    padding: 1.3rem;
-    padding-right: 2.3rem;
+    padding: 1.8rem 2.2rem;
+    padding-right: 3.2rem;
     display: flex;
-    border-radius: .5rem 0 0 .5rem;
+    border-radius: 2rem 0 0 2rem;
     align-items: center;
     justify-content: center;
-    font-size: 2.5rem;
+    font-size: 5.4rem;
     cursor: pointer;
     position: fixed;
     right: 0;
-    top: 15%;
+    top: 50%;
+    margin-top: -4.5rem;
     transition: all .3s;
     &:hover{
         transform: translate(0,0);
@@ -674,7 +675,7 @@ body{
 
 .calc-sum{
     white-space: nowrap;
-    line-height: 0;
+    line-height: 1;
     font-size: 5rem;
     text-align: center;
     &__by{
@@ -702,6 +703,11 @@ body{
         font-size: 2.6rem;
         line-height: 1;
         white-space: nowrap;
+        width: auto;
+        appearance: none;
+        border:none;
+        line-height: normal;
+        display: inline-block;
     }
 }
 /*-------------------------------------------------*/
@@ -2153,15 +2159,218 @@ body{
     transform: translate(0,0px);
   }
 }
+
+.text-grad{
+    background-color: #ffffff;
+    border-radius: 2rem;
+    overflow: hidden;
+    &__header{
+        background-image: linear-gradient(to top, #0075ca 0%, #080624 100%);
+        color: white;
+        font-weight: bold;
+        font-size: 1.6rem;
+        padding: 2.5rem 5rem;
+        text-transform: uppercase;
+        height: 10.2rem;
+        display: flex;
+        align-items: center;
+    }
+    &__text{
+        padding: 2.5rem 5rem;
+        display: flex;
+        justify-content: space-between;
+    }
+    &__col{
+        display: flex;
+        flex-direction: column;
+        span:last-child{
+            font-weight: bold;
+            font-size: 2.5rem;
+        }
+    }
+}
+
+.service-ipo{
+    padding-top: 4.5rem;
+    &__header{
+        font-size: 2.7rem;
+    }
+}
+
+.service-ipo-tabs{
+    &_fly-nav{
+        position: relative;
+        .service-ipo-tabs__nav{
+            position: absolute;
+            bottom: 100%;
+        }
+    }
+    &__nav{
+        a{
+            &.active{color: #202020; background: #F3F3F3;}
+            border-radius: 1rem 1rem 0 0;
+            text-transform: uppercase;
+            text-decoration: none;
+            color: inherit;
+            font-size: 1.4rem;
+            font-weight: bold;
+            padding: 2rem 2.3rem;
+            vertical-align: top;
+            display: inline-block;
+            color: white;
+        }
+    }
+    &__body{
+        padding: 6rem 0;
+    }
+    &__item:not(.active){
+        display: none;
+    }
+}
+.service-ipo-item{
+    height: 37.6rem;
+    display: flex;
+    font-size: 1.6rem;
+    line-height: 1.5;
+    background-color: #ffffff;
+    border-radius: 2rem;
+    &__row{
+        &:not(:first-child){
+            margin-top: 3rem;
+        }
+        &>span{
+            display: block;
+            &:last-child{
+                font-size: 5rem;
+                line-height: 1;
+            }
+        }
+    }
+    &__col{
+        display: flex;
+        
+        flex: 1 1 50%;
+        max-width: 50%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        padding: 10rem;
+        &:first-child{
+            background: #FFCC00;
+            overflow: hidden;
+            border-radius: 2rem;
+            position: relative;
+            &:after,&:before{
+                content: '';
+                height: 50%;
+                background: white;
+                position: absolute;
+                width: 100%;
+                left: 100%;
+            }
+            &:after{
+                top: 0;
+                transform: skew(15deg) translate(-2.5rem);
+            }
+            &:before{
+                bottom: 0;
+                transform: skew(-15deg) translate(-2.5rem);
+            }
+        }
+    }
+    &__name{
+        font-size: 2.6rem;
+        font-weight: 800;
+        margin-bottom: 3rem;
+        text-transform: uppercase;
+        letter-spacing: 0.208rem;
+    }
+}
+
+.inner-screen{
+    background-image: url('../img/ipofirst.jpg');
+    height: 66.8rem;
+    align-items: center;
+    display: block;
+    display: flex;
+    width: auto;
+    position: relative;
+    color: white;
+    &:after{
+        content: '';
+        background-color: #212029;
+    opacity: 0.55;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    top: 0;
+    position: absolute;
+    }
+    &>*{
+        z-index: 1;
+        position: relative;
+    }
+    &__name{
+        color: white;
+    }
+    &__desc{
+        font-size: 3rem;
+        margin-bottom: 6rem;
+        font-weight: 300;
+    }
+    &__img{
+        flex-grow: 0;
+        flex-shrink: 0;
+        border-radius: 50%;
+        background-color: #fff;
+        overflow: hidden;
+        flex-basis: 38.1em;
+        max-width: 38.1rem;
+        height: 38.1rem;
+        text-align: center;
+        font-size: 4.5rem;
+    }
+    &__action{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 3.5rem 0;
+    }
+}
+
+.inner-screen{
+    &__name{
+
+    }
+}
 /*-------------------------------------------------*/
 /*  ... */
 /*-------------------------------------------------*/
 
 .fast-help-start-text{
     align-items: center;
+    
 }
 
 @media screen and (max-width: 991px){
+    .service-ipo-item{
+        flex-direction: column;
+        height: auto;
+        &__col{
+            flex: 1 1 auto;
+            width: auto;
+            max-width: none;
+            padding: 3rem;
+            &:after,
+            &:before{
+                display: none;
+            }
+        }
+    }
+      .inner-screen__name{
+        line-height: 1.3;
+        font-size: 4.2rem;
+    }
     .h{
         br{
             display: none;
@@ -2322,6 +2531,26 @@ body{
 }
 
 @media screen and (max-width: 767px){
+    .service-ipo-tabs__nav{
+        position: static !important;
+        a{
+            color: inherit !important;
+        }
+    }
+    .inner-screen{
+        height: auto;
+        padding: 5rem 0;
+        &__row{
+            flex-direction: column;
+            &>*{
+                flex: 0 1 auto;
+            }
+        }
+        &__img{
+            order: -1;
+            margin-bottom: 3rem;
+        }
+    }
     .btn{
         padding-left: 4rem;
         padding-right: 4rem;
