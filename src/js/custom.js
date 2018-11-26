@@ -35,8 +35,10 @@ $(function(){
       
     }
   })
-
+  var sliders = [];
   $('.js-slider-container').each(function(){
+    
+
     var calcParent = $(this).closest('.js-calc-init');
     var moneyFormat = wNumb({
       mark: '.',
@@ -51,6 +53,7 @@ $(function(){
     var min = $(this).data('min');
     var start = $(this).data('start');
     var decimal = $(this).data('decimal');
+    var role = $(this).attr('role');
     if(!slider.length) return false;
     var slider = noUiSlider.create(slider[0], {
       start: start,
@@ -60,13 +63,25 @@ $(function(){
         'max': max
       }
     });
+    sliders[role] = slider;
+    
+    setMaxFirstPay(n($('[role="val"][aria-type="price"]').text()) * .9, 0);
+
+    function setMaxFirstPay(max,min) {
+      var firstPayCurSlider = $('[role="firstpaycur"][aria-type="r"] .js-slider')[0].noUiSlider;
+      if (firstPayCurSlider){
+        firstPayCurSlider.updateOptions({range:{max:max,min:min}});
+      }
+    }
 
     slider.on('update', function(values, handle){
       if(decimal) valSelector.text(+values[handle]);
       else valSelector.text(moneyFormat.to(+values[handle]));
       CALC.calculate($(calcParent));
+      if (role ==="price"){
+        setMaxFirstPay(+values[handle]*0.9,0);
+      }
     });
-
   });
 
   $('.partners-slider__slider').each(function () {
@@ -350,16 +365,31 @@ var CALC = (function(){
     }
     if(values.paysType === 'a'){
       var result = lastPrice * values.persentVal / 100 / 12 / (1 - Math.pow((1 + values.persentVal / 100 / 12), -values.time*12));
-      toHtml(s(result), calc);
+      var totalAmount = result * values.time * 12;
+      var totalOverPayments = totalAmount - values.price;
+      toHtml(s(result), s(totalAmount), s(totalOverPayments), calc);
     }
 
     if(values.paysType === 'd'){
       var firstPay = lastPrice/values.time/12+lastPrice*values.persentVal/100/12;
       var lastPay = lastPrice / values.time / 12 + lastPrice / values.time / 12 * values.persentVal /100 / 12;
       var result = s(firstPay) + '... <br>' + s(lastPay);
-      toHtml(result, calc);
+      var totalAmount = differencePays(values);
+      var totalOverPayments = totalAmount - values.price;
+      toHtml(result, s(totalAmount), s(totalOverPayments), calc);
     }
   }
+
+  function differencePays(values){
+    var pays = [];
+    var price = values.price - values.firstPayRouble;
+    var mainPay = price / (values.time*12);
+    for(var i = 0; i<values.time*12; i++){
+      pays.push(mainPay + (price - (mainPay * i)) * (values.persentVal / 100 / 12) );
+    }
+    return pays.sum();
+  }
+
   function firstPayCurrencyToggle(calc){
     calc.find('[role="firstpaycur"]').hide();
     
@@ -377,15 +407,13 @@ var CALC = (function(){
       firstPayCurrencyToggle($(calc));
     });
   }
-  function n(str){
-    return Number(str.replace(/ /g,''));
-  }
-  function s(number){
-    return Number(number.toFixed(2)).toLocaleString()+' ';
-  }
-  function toHtml(result, calc){
+
+  function toHtml(result, totalAmount, totalOverPayments, calc){
     $(calc).find('[role="output"]').filter("[aria-type='by-month']").html(result);
+    $(calc).find('[role="output"]').filter("[aria-type='amount-pay']").html(totalAmount);
+    $(calc).find('[role="output"]').filter("[aria-type='amount-overpay']").html(totalOverPayments);
   }
+ 
   return {
     calculate: function(calc){
       calculate(getValues(calc), calc);
@@ -399,6 +427,13 @@ var CALC = (function(){
     }
   }
 }());
+
+function n(str) {
+  return Number(str.replace(/ /g, ''));
+}
+function s(number) {
+  return Number(number.toFixed(2)).toLocaleString() + ' ';
+}
 
 $(document).ready(function(){
   if($('.js-calc-init').length) CALC.init();
@@ -414,3 +449,12 @@ $(function(){
     return false;
   })
 });
+
+
+Array.prototype.sum = function(){
+  var result = 0;
+  for(var i = 0; i < this.length; i++){
+    result += this[i];
+  }
+  return result;
+};
